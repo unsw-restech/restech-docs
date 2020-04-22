@@ -7,13 +7,13 @@ Welcome to Katana User's documentation!
 =======================================
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 2
    :caption: Contents:
    :hidden:
    :glob:
 
    help_and_support
-   using_katana
+   using_katana/index
    storage
    software/index
    reference_data

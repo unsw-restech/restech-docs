@@ -18,6 +18,8 @@ Software
    java
    perl
    python
+   python-virtualenvs
+   python-jupyter-notebooks
    r   
 
 
@@ -188,6 +190,10 @@ Perl, Python and R all have their own library/module systems - CPAN_, PyPI_ and 
 :ref:`Java`
 
 :ref:`Python`
+
+    - :ref:`python_virtual_environments`
+
+    - :ref:`jupyter_notebooks`
 
 :ref:`Perl`
 
