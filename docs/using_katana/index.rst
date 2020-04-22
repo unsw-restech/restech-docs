@@ -4,6 +4,11 @@
 Using Katana
 ============
 
+.. contents::
+   :depth: 1
+   :local:
+   :backlinks: top 
+
 .. toctree::
    :maxdepth: 1
    :hidden:
@@ -11,12 +16,6 @@ Using Katana
 
    accessing_katana
    running_jobs
-
-
-:ref:`accessing_katana`
-
-:ref:`running_jobs`
-
 
 .. _about_katana:
 
@@ -42,3 +41,30 @@ Compute
 GPU Compute
 -----------
 
+Accessing Katana
+================
+
+:ref:`accessing_katana`
+
+:ref:`requesting_an_account`
+
+:ref:`connecting_to_katana`
+
+Running Jobs
+============
+
+:ref:`running_jobs`
+
+:ref:`interactive_job`
+
+:ref:`simple_batch_jobs`
+
+:ref:`array_jobs`
+
+:ref:`more_info_from_pbs`
+
+:ref:`managing_jobs`
+
+:ref:`monitoring_jobs`
+
+:ref:`katana_compute_faq`

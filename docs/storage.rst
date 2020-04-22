@@ -244,8 +244,9 @@ If the data is in /srv/scratch/my-remote-results and you want it in your home di
     TODO: old docs have a heading here about rsync which turns into a screen tutorial. Scrapped. Make a tmux tutorial somewhere sensible (software) and point at that.
     Do not need another rsync. If I'm wrong, put it in software
 
-Copying files to the UNSW Data Archive
-======================================
+================================
+How to use the UNSW Data Archive
+================================
 
 The UNSW Data Archive is the primary research storage facility provided by UNSW. The Data Archive gives UNSW researchers a free, safe and secure storage service to store and access research data well beyond the life of the project that collected that data.
 
@@ -270,7 +271,7 @@ Use the help command for usage
     This advice has poor results. The help file is too long for most screen sizes and there's no pagination in modules version < 4. Last line should include a location that the researcher can read directly (using less)
 
 Initial Setup
--------------
+=============
 
 To use the Data Archive you need to set up a configuration file. Here's how to create the generic config in the directory you are in:
 
@@ -291,87 +292,94 @@ If you haven't generated a token you can also upload content using your zID and 
     user=z1234567
 
 Starting a data transfer
-------------------------
+========================
 
-You can start importing data into the Archive by moving to the directory that contains the data you want transfered
+To get data **into** the archive, we use **upload.sh**
 
 ::
 
-    upload.sh “/path/to/your/local/directory” “/UNSW_RDS/D0000000/your/collection/name”d
+    upload.sh /path/to/your/local/directory /UNSW_RDS/D0000000/your/collection/name
 
+
+To get data **from** the archive, we use **download.sh**
+
+::
+
+    download.sh /UNSW_RDS/D0000000/your/collection/name /path/to/your/local/directory
 
 .. _storage_faqs:
 
-FAQs
+===
+FAQ
 ===
 
 Can I put my files in my home drive (H-drive)?
-----------------------------------------------
+==============================================
 
 You can put your files in your H-Drive for storage but to use them for a job your files need to be in your cluster home drive and not your H-drive as your H-drive is only available on the head node and not the compute nodes. Have a look at the page storage page for a discussion about the different storage locations and the copying files page for information about copying files to your cluster home drive.
 
 Where does Standard Output (STDOUT) go when a job is run?
----------------------------------------------------------
+=========================================================
 
 By default Standard Output is redirected to storage on the node and then transferred when the job is completed. If you are generating data you should redirect STDOUT to a different location. The best location depends on the characteristics of your job but in general all STDOUT should be redirected to local scratch.
 
 What storage is available to me?
---------------------------------
+================================
 
 Katana provides 3 different storage areas, cluster home drives, local scratch and global scratch. The storage page has additional information on the differences and advantages of each of the different types of storage. You may also want to consider storing your code using a version control seryive like GitHub. This means that you will be able to keep every version of your code and revert to an earlier version if you require.
 
 Which storage is fastest?
--------------------------
+=========================
 
 In order of performance the best storage to use is local scratch, global scratch and cluster home drive.
 
 Is any of the cluster based storage backed up?
-----------------------------------------------
+==============================================
 
 The only cluster based storage that gets backed up is the cluster home drives. All other storage including local and global scratch is not backed up.
 
 How do I actually use local scratch?
-------------------------------------
+====================================
 
 The easiest way of making use of local scratch is to use scripts to copy files to the node at the start of your job and from the node when your job finishes. You should also use local scratch for your working directory and temporary files.
 
 Why am I having trouble creating a symbolic link?
--------------------------------------------------
+=================================================
 
 Not all filesystems support symbolic links. The most common examples are some Windows network shares. On Katana this includes Windows network shares such as hdrive. The target of the symbolic link can be within such a filesystem, but the link itself must be on a filesystem that supports symbolic links, e.g. the rest of your home directory or your scratch directory. 
 
 What is the Disk Usage message that I get when I log on to a cluster?
----------------------------------------------------------------------
+====================================================================-
 
 When you log on to Katana a command is run to display how much space you currently have available in the different file systems.
 
 How do I get access to my UNSW Home drive when I log on to a cluster?
----------------------------------------------------------------------
+=====================================================================
 
 When you log on to kdm.restech.unsw.edu.edu you can run the network command to mount your UNSW Home drive.
 
 What storage is available on compute nodes?
--------------------------------------------
+===========================================
 
 As well as local scratch, global scratch and your cluster home drives are accessible on the compute nodes of the clusters.
 
 What is the best way to transfer a large amount of data onto a cluster?
------------------------------------------------------------------------
+=======================================================================
 
 Use RSYNC to copy data to the KDM server. More information is above.
 
 Is there any way of connecting my own file storage to one of the clusters?
---------------------------------------------------------------------------
+==========================================================================
 
 Whilst it is not possible to connect individual drives to any of the clusters, some units and research groups have purchased large capacity storage units which are co-located with the clusters. This storage is then available on the cluster nodes. For more information please contact the Research Technology Service Team by placing a request with the UNSW IT Service Centre (ITServiceCentre@unsw.edu.au).
 
 Can I specify how much file storage I want on local scratch?
-------------------------------------------------------------
+============================================================
 
 If you want to specify the minimum amount of space on the drive before your job will be assigned to a node then you can use the file option in your job script. Unfortunately setting up more complicated file requirements is currently problematic.
 
 Can I run a program directly from scratch or my home drive after logging in to the cluster rather submitting a job?
--------------------------------------------------------------------------------------------------------------------
+===================================================================================================================
 
 As the file server does not have any computational resources you would be running the job from the head node on the cluster. If you need to enter information when running your job then you should start an interactive job.
 

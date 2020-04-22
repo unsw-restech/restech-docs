@@ -15,6 +15,7 @@ Requesting an Account
 
 To apply for an account you can send an email to the `UNSW IT Service Centre <ITServiceCentre@unsw.edu.au>`__ giving your zID, your role within UNSW and the name of your supervisor or head of your research group.
 
+.. _connecting_to_katana:
 
 Connecting to Katana
 ====================

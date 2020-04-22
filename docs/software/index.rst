@@ -187,7 +187,13 @@ Perl, Python and R all have their own library/module systems - CPAN_, PyPI_ and 
 
 :ref:`intel_compilers_and_libraries`
 
+Java
+====
+
 :ref:`Java`
+
+Python
+======
 
 :ref:`Python`
 
@@ -195,12 +201,19 @@ Perl, Python and R all have their own library/module systems - CPAN_, PyPI_ and 
 
     - :ref:`jupyter_notebooks`
 
+Perl
+====
+
 :ref:`Perl`
+
+R and RStudion
+==============
 
 :ref:`R`
 
-Bioscience
-----------
+Biosciences
+===========
+
 
 Bioconductor, BioPerl, BioPython, Blast+, Mothur
 

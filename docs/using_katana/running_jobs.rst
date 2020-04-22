@@ -258,6 +258,8 @@ However, if that job script was reused elsewhere then it must be updated because
 
 
 
+.. _array_jobs:
+
 Array Jobs
 ==========
 
@@ -332,6 +334,8 @@ If your data processing can be split into multiple steps then rather than creati
 .. warning::
     TODO: old documentation had examples here. Move all examples to github
 
+.. _more_info_from_pbs:
+
 How to get more information from PBS
 ====================================
 
@@ -345,6 +349,8 @@ If you use the following commands then you can look at the scheduler including y
     **qstat -f JOBID* – Get details on job JOBID
     **pbsnodes** – Get information about free memory and CPU cores on all nodes. Also the JOBID of all jobs currently running on the nodes. FIgure out which nodes your group has access to
     **pbsnodes k121** - Get information about node k121.
+
+.. _managing_jobs:
 
 Managing your queued jobs
 =========================
@@ -401,8 +407,10 @@ To kill a single batch job is easy but it is slightly more complicated to remove
 If you want to remove all of your (non-array) jobs then you can use qselect and qdel together and type “qdel `qselect -u $USER`”. In the same way you can use "qstat -f `qselect -u $USER`" to get detailed information on all of your jobs.
 
 
-Job Monitoring: Once your job starts
-====================================
+.. _monitoring_jobs:
+
+Monitoring jobs
+===============
 
 As well as providing you information about the general status of the cluster this information can be used to help build up a profile of your job as you can easily look at what resources were used.
 
