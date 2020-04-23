@@ -307,11 +307,11 @@ To get data **from** the archive, we use **download.sh**
 
     download.sh /UNSW_RDS/D0000000/your/collection/name /path/to/your/local/directory
 
-.. _storage_faqs:
+.. _storage_faq:
 
-===
-FAQ
-===
+===========
+Storage FAQ
+===========
 
 Can I put my files in my home drive (H-drive)?
 ==============================================

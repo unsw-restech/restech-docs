@@ -496,10 +496,36 @@ If you have results that should be transferred to the UNSW Data Archive (www.dat
 .. warning::
     TODO: old docs had a list of examples here - move them all to github
 
+.. _scheduler_tips:
+
+Tips for using PBS and Katana effectively
+=========================================
+
+Keep your jobs under 12 hours if possible
+-----------------------------------------
+
+If you request more than 12 hours of WALLTIME then you can only use the nodes bought by your school or research group, or the Faculty of Science. Keeping your job's run time request under 12 hours means that it can run on any node in the cluster.
+
+Two 10 hour jobs will probably finish sooner that one 20 hour job
+
+In fact, if there is spare capacity on Katana, which there is most of the time, six 10 hours jobs will finish before a single 20 hour job will.
+Requesting more resources for your job decreases the places that the job can run
+
+The most obvious example is going over the 12 hour limit which limits the number of compute nodes that your job can run on but it is worth . For example specifying the CPU in your job script restricts you to the nodes with that CPU. A job that requests 20Gb will run on a 128Gb node with a 100Gb job already running but a 30Gb job will not be able to.
+
+Running your jobs interactively makes it hard to manage multiple concurrent jobs
+--------------------------------------------------------------------------------
+
+If you are currently only running jobs interactively then you should move to batch jobs which allow you to submit more jobs which then start, run and finish automatically.
+If you have multiple batch jobs that are almost identical then you should consider using array jobs
+
+If your batch jobs are the same except for a change in file name or another variable then you should have a look at using array jobs.
+
+
 .. _katana_compute_faq:
 
-FAQ
-===
+Scheduler FAQ
+=============
 
 Katana is a blade based cluster which is available for use by members of groups who have bought in to it. The extensive information under HPC Basics are of this site combined with the Katana specific information is a good starting point for making use of Katana. The answers to some commonly asked questions about Katana is included below. 
 

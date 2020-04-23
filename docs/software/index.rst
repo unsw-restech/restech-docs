@@ -1,27 +1,13 @@
 .. _software:
 
-========
-Software
-========
-
 .. contents::
    :depth: 1 
    :local:
    :backlinks: top 
 
-.. toctree::
-   :maxdepth: 1
-   :hidden:
-   :glob:
-
-   intel_compilers_and_libraries
-   java
-   perl
-   python
-   python-virtualenvs
-   python-jupyter-notebooks
-   r   
-
+=================
+Operating Systems
+=================
 
 Katana nodes are running either RedHat 7.7 (management plane) or CentOS 7.7 (compute nodes). 
 
@@ -31,6 +17,7 @@ If you require software installed on the cluster then the best way to do so is t
 
 The sections below provide information about some of the specific software that is installed on Katana.
 
+===================
 Environment Modules
 ===================
 
@@ -180,40 +167,72 @@ The best way of doing this is to add your Module commands to your job scripts. T
 
 .. _notable_softwares:
 
-Notable Software List
-=====================
-
 Perl, Python and R all have their own library/module systems - CPAN_, PyPI_ and CRAN_. If a library or module you want from one of these sources isn't installed in the module, please email us at `IT Service Desk <ITServiceCentre@unsw.edu.au?subject=Katana Software Install>`_
 
-:ref:`intel_compilers_and_libraries`
+.. _intel_compilers_and_libraries:
 
+======================================
+Intel Compilers and Software Libraries
+======================================
+
+Research Technology Services has a licence for Intel Compiler Collection which can be accessed by loading a module and contains 3 groups of software, namely compilers, libraries and a debugger. This software has been optimised by Intel to take advantage of the specific capabilities of the different intel CPUs installed in the Intel based clusters.
+
+- Compilers
+    - Intel C Compiler (icc)
+    - Intel C++ Compiler (icpc)
+    - Intel Fortran Compiler (ifort)
+- Libraries
+    - Intel Math Kernel Library (MKL)
+    - Intel Threading Building Blocks (TBB)
+    - Intel Integrated Performance Primitives (IPP)
+- Debugger
+    - Intel Debugger (idbc)
+
+.. _java:
+
+====
 Java
 ====
 
-:ref:`Java`
+Java is installed as part of the Operating System but we would strongly recommend against using that version - we cannot guarantee scientific reproducibility with that version. Please use the java modules. 
 
-Python
-======
+Each Java module sets 
 
-:ref:`Python`
+::
+    
+    _JAVA_TOOL_OPTIONS -Xmx1g
 
-    - :ref:`python_virtual_environments`
+This sets the heap memory to 1GB. If you need more, set the environment variable _JAVA_OPTIONS which overrides _JAVA_TOOL_OPTIONS
 
-    - :ref:`jupyter_notebooks`
+::
 
+    export _JAVA_OPTIONS -Xmx5g
+
+.. _perl:
+
+====
 Perl
 ====
 
-:ref:`Perl`
+The default version of Perl on Katana is 5.16.3 which is provided by CentOS 7 and can be found at /usr/bin/perl.
 
-R and RStudion
-==============
+This is an older version of Perl. We have Perl 5.28.0 installed as a module. 
 
-:ref:`R`
+It is common for perl scripts to begin with 
 
+::
+
+    #!/usr/bin/perl
+
+If you are using the Perl module, you will need to change the first line to 
+
+::
+
+    #!/usr/bin/env perl
+
+===========
 Biosciences
 ===========
-
 
 Bioconductor, BioPerl, BioPython, Blast+, Mothur
 
