@@ -14,6 +14,12 @@
 # import sys
 # sys.path.insert(0, os.path.abspath('.'))
 
+import sys, os
+
+sys.path.append(os.path.abspath('sphinxext'))
+
+extensions = ['rst2pdf.pdfbuilder']
+
 
 # -- Project information -----------------------------------------------------
 
