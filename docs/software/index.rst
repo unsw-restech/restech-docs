@@ -267,7 +267,7 @@ If you wish to load or install additional Stata modules or commands you should u
     sysdir set PERSONAL $HOME/myadofiles
 
 
-.. _tmux:
+.. _tmux_session:
 
 ====
 TMUX
