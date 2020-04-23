@@ -16,7 +16,7 @@ Welcome to Katana User's documentation!
    using_katana/index
    using_katana/accessing_katana
    using_katana/running_jobs
-   storage
+   Storage <storage>
    Software <software/index>
    software/python
    software/python-virtualenvs

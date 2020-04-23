@@ -23,7 +23,7 @@ We get a lot of questions about installing Conda and Anaconda. Unfortunately nei
 
 You are able to install them into your home directory and we encourage you to do so.
 
-Alternatively, many packages will give you an option for a `pip install` - if this is an option, we recommend...
+Alternatively, many packages will give you an option for a :code:`pip install` - if this is an option, we recommend...
 
 Virtual Environments
 ++++++++++++++++++++

@@ -19,7 +19,7 @@ In this tutorial we will see how to set up a venv and explain what's happening u
 Setting up the default environment
 ==================================
 
-According to the `Python documentation <https://docs.python.org/3/library/venv.html>`_, we will run something like this `python3 -m venv /path/to/new/virtual/environment`. This is not a directory that we need to see or need to spend time in actively, so it's ok to make it hidden. This is an important distinction - the *venv* should not be where you are doing your development. It's meant to be flexible - as soon as you fill it with development code, it's no longer flexible. Also, you want your dev code backed up or in a repo - it is unnecessary to add the Python software to that process.
+According to the `Python documentation <https://docs.python.org/3/library/venv.html>`_, we will run something like this :code:`python3 -m venv /path/to/new/virtual/environment`. This is not a directory that we need to see or need to spend time in actively, so it's ok to make it hidden. This is an important distinction - the *venv* should not be where you are doing your development. It's meant to be flexible - as soon as you fill it with development code, it's no longer flexible. Also, you want your development code backed up or in a repository - it is unnecessary bloat to add the Python software to that backup or repository.
 
 We will make a directory in which we can keep many venvs. What I found was that once I started using venvs, it didn't make any sense to do Python development without them.
 
@@ -45,7 +45,7 @@ I'll be using the latest version of Python available to me. Since this is one of
 
 That's it, we are done. If you want to take a look under the hood, see `what's in my virtualenv? <venv-internals.md>`_
 
-Next, we need to **activate** our venv. This makes our virtualenv our current environment. To activate, we execute `source /path/to/venv/bin/activate`. Note that after activation, the prompt changes to make it clear you are now in a venv. You can see the change in which versions of `python3` and `pip3` are available before and after activation:
+Next, we need to **activate** our venv. This makes our virtualenv our current environment. To activate, we execute :code:`source /path/to/venv/bin/activate`. Note that after activation, the prompt changes to make it clear you are now in a venv. You can see the change in which versions of :code:`python3` and :code:`pip3` are available before and after activation:
 
 Before we activate our environment
 
@@ -123,7 +123,7 @@ At this point - before any work is done, and while using your venv - it's a grea
 Installing software
 ===================
 
-And then package installation is as easy as using `pip install ...`:
+And then package installation is as easy as using :code:`pip install ...`:
 
 ::
 
@@ -144,7 +144,7 @@ And then package installation is as easy as using `pip install ...`:
 Exiting the venv, and coming around again
 =========================================
 
-To leave a venv, you use the `deactivate` command like this:
+To leave a venv, you use the :code:`deactivate` command like this:
 
 ::
 
@@ -227,7 +227,7 @@ In that case, your workflow would be:
 
  - load the module in question
 
- - create the Virtual Env with "--system-site-packages"
+ - create the Virtual Environment with the flag :code:`--system-site-packages`
 
  - install software in question with an understanding that you might not be able to get the latest release
 

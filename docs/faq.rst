@@ -50,6 +50,6 @@ Facilities external to UNSW
 
 If you are using facilities at Intersect_ or NCI_ in addition to Katana they may also require some form of acknowledgement.
 
-.. _Intersect: http://www.intersect.org.au/
+.. _Intersect: https://intersect.org.au/attribution
 .. _NCI: http://nci.org.au/users/nci-terms-and-conditions-access
 

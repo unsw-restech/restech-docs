@@ -18,6 +18,13 @@ Head Node
 
 The head node of the cluster is the computer that you log in to when you connect to the cluster. This node is used to compile software and submit jobs.
 
+.. _def_login_node:
+
+Login Node
+----------
+
+The login nodes of the cluster is the computer that you log in to when you connect to the cluster. This node is used to compile software and submit jobs.
+
 .. _def_storage_node:
 
 Storage Node 

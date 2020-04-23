@@ -8,7 +8,7 @@ Who to contact
 ==============
 
 Katana issues including: functional issues, software installation, reference data sets, general questions: 
-Email the `Service Desk <itservicedesk@unsw.edu.au>`__, including the word Katana in the subject line.
+Email the `IT Service Centre <ITServiceCentre@unsw.edu.au>`_, including the word Katana in the subject line.
 
 .. note::
     This is the best and primary way to get help from UNSW Research Technology Services beyond this document.

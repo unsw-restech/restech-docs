@@ -13,8 +13,6 @@ Katana nodes are running either RedHat 7.7 (management plane) or CentOS 7.7 (com
 
 Research software is installed in modules so that they can be loaded or unloaded as necessary. This way we can offer and run multiple versions of each package at the same time.
 
-If you require software installed on the cluster then the best way to do so is to email the IT Service Centre (ITServiceCentre@unsw.edu.au) detailing the software that you would like installed and mention that you would like it to be installed on Katana.
-
 The sections below provide information about some of the specific software that is installed on Katana.
 
 ===================
@@ -45,8 +43,8 @@ How do I discover what software is available?
     matlab/2009b          matlab/2011b          matlab/2013a
 
 
-What can I do if the software that I want to use is not on the list?
---------------------------------------------------------------------
+What if the software that I want is not on the list?
+----------------------------------------------------
 
 If you require software installed on the cluster, email the `IT Service Centre <ITServiceCentre@unsw.edu.au>`_ detailing the software that you would like installed and that you would like to have it installed on Katana. Please include links and desired version numbers.
 
@@ -169,6 +167,12 @@ The best way of doing this is to add your Module commands to your job scripts. T
 
 Perl, Python and R all have their own library/module systems - CPAN_, PyPI_ and CRAN_. If a library or module you want from one of these sources isn't installed in the module, please email us at `IT Service Desk <ITServiceCentre@unsw.edu.au?subject=Katana Software Install>`_
 
+===========
+Biosciences
+===========
+
+Bioconductor, BioPerl, BioPython, Blast+, Mothur are all installed.
+
 .. _intel_compilers_and_libraries:
 
 ======================================
@@ -202,7 +206,7 @@ Each Java module sets
     
     _JAVA_TOOL_OPTIONS -Xmx1g
 
-This sets the heap memory to 1GB. If you need more, set the environment variable _JAVA_OPTIONS which overrides _JAVA_TOOL_OPTIONS
+This sets the heap memory to 1GB. If you need more, set the environment variable :code:`_JAVA_OPTIONS` which overrides :code:`_JAVA_TOOL_OPTIONS`
 
 ::
 
@@ -214,7 +218,7 @@ This sets the heap memory to 1GB. If you need more, set the environment variable
 Perl
 ====
 
-The default version of Perl on Katana is 5.16.3 which is provided by CentOS 7 and can be found at /usr/bin/perl.
+The default version of Perl on Katana is 5.16.3 which is provided by CentOS 7 and can be found at :code:`/usr/bin/perl`.
 
 This is an older version of Perl. We have Perl 5.28.0 installed as a module. 
 
@@ -230,11 +234,37 @@ If you are using the Perl module, you will need to change the first line to
 
     #!/usr/bin/env perl
 
-===========
-Biosciences
-===========
+.. _sas:
 
-Bioconductor, BioPerl, BioPython, Blast+, Mothur
+===
+SAS
+===
+
+The 64-bit version of SAS is available as a module.
+
+By default SAS will store temporary files in :code:`/tmp` which can easily fill up leaving the node offline. In order to avoid this we have set the default to :code:`$TMPDIR` to save temporary files in :code:`/var/tmp` on the Katana head node and local scratch on compute nodes. If you wish to save temporary files to a different location you can do that by using the :code:`-work` flag with your SAS command or adding this line to your :code:`sasv9.cfg` file:
+
+::
+
+    -work /my/directory
+
+=====
+Stata
+=====
+
+Stata is availt as a module. 
+
+When using Stata in a pbs batch script, the syntax is
+
+::
+
+    stata -b do StataClusterWorkshop.do
+
+If you wish to load or install additional Stata modules or commands you should use findit command on your local computer to find the command that you are looking for. Then create a directory called :code:`myadofiles` in your home directory and copy the .ado (and possibly the .hlp) file into that directory. Now that the command is there it just remains to tell Stata to look in that directory which can be done by using the following Stata command.
+
+::
+
+    sysdir set PERSONAL $HOME/myadofiles
 
 
 .. _CPAN: https://www.cpan.org/

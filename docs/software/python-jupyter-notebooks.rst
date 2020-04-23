@@ -20,9 +20,9 @@ Preparation
 
 These two steps are independant of each other - there is no need to do them in order.
 
-1. You will need to be able to connect to Katana via Remote Desktop. There are Instructions on how to do this on the `katana introduction page <https://research.unsw.edu.au/katana>`_ under the heading "Graphical Session" which is at the bottom of the section titled "Connecting to Katana".
+1. You will need to be able to connect to Katana via Remote Desktop. There are Instructions on how to do this in :ref:`graphical_session`. 
 
-2. You will need to create a Python Virtual Environment (:ref:`python_virtual_environments`), activate it, and install Jupyter via the command `pip install jupyter`
+2. You will need to create a Python Virtual Environment (:ref:`python_virtual_environments`), activate it, and install Jupyter via the command :code:`pip install jupyter`
 
 Reconnection
 ============
@@ -31,12 +31,12 @@ Everytime you would like to use your Jupyter notebook, you will need to:
 
     - Remote Desktop into Katana
     - open a terminal 
-    - start an interactive session - **qsub -I** - and wait for it to start
+    - start an interactive session - :code:`qsub -I` - and wait for it to start
     - in the interactive session, load any relevant modules (if applicable)
     - activate your virtual environment
-    - grab the IP address of the node you are on: **hostname -I | awk '{print $1}'**
-    - launch Jupyter Notebook like this: **jupyter-notebook --ip=$(hostname -I | awk '{print $1}') --no-browser**
-    - copy one of the first two options (the file:/// or http://10.197.34.xxx:8888) into firefox in the remote desktop session
+    - grab the IP address of the node you are on: :code:`hostname -I | awk '{print $1}'`
+    - launch Jupyter Notebook like this: :code:`jupyter-notebook --ip=$(hostname -I | awk '{print $1}') --no-browser`
+    - copy one of the first two options (the :code:`file:///` or :code:`http://10.197.34.xxx:8888`) into firefox in the remote desktop session
 
 Caveat: if you get an error about a port being busy, launch Jupyter with this command, susbstituting XXXX with a large number: 
 
