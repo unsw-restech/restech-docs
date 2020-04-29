@@ -24,8 +24,12 @@ Email the `research data team <rds@unsw.edu.au>`__
 Scheduled Maintenance
 =====================
 
+There is no maintenance scheduled for the moment. 
+
 Katana System Status and Known Issues
 =====================================
+
+No known issues at the moment.
 
 Katana Terms of Use
 ===================
