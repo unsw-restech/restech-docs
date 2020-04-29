@@ -39,7 +39,7 @@ Some of the compute nodes Katana are called blade servers which allow a higher d
 Cluster
 -------
 
-A computer cluster is a set of connected computers that work together so that, in many respects, they can be viewed as a single system. Using a cluster is referred to as High Performance Computing or HPC. Most will have a :ref:`def_mangement_plane` and several :ref:`def_compute_nodes`.
+A computer cluster is a set of connected computers that work together so that, in many respects, they can be viewed as a single system. Using a cluster is referred to as High Performance Computing or HPC. Most will have a :ref:`def_management_plane` and several :ref:`def_compute_nodes`.
 
 .. _def_compute_nodes:
 
@@ -48,7 +48,7 @@ Compute Nodes
 
 The compute nodes are where the compute jobs run. Users submit jobs from the :ref:`def_login_node` and the :ref:`def_job_scheduler` on the :ref:`def_head_node` will assign the job to one or more compute nodes.
 
-.. _def_cpu_code:
+.. _def_cpu_core:
 
 CPU Core
 --------
@@ -62,10 +62,10 @@ Data Transfer Node
 
 The Data Transfer Node, also known as the :ref:`katana_data_mover` (KDM), is a server that is used for transferring files to, from, and within the cluster. Due to the nature of moving data around, it uses a significant amount of memory and network bandwidth. This server is used to take that load off the :ref:`def_login_node`.
 
-.. _def_environment_variables:
+.. _def_environment_variable:
 
-Environment Variables 
----------------------
+Environment Variable 
+--------------------
 
 Environment variables are variables that are set in Linux to tell applications where to find programs and set program options. They will start with a $ symbol. For example, all users can reference :code:`$TMPDIR` in their :ref:`def_job_script` in order to use :ref:`def_local_scratch`
 
@@ -96,7 +96,7 @@ These can be seen by running :code:`qstat` and looking for an H in the second la
 Interactive Jobs 
 ----------------
 
-An interactive job is a way of testing your program and data on a cluster without negatively impacting the :ref:`def_login_node`. Once a request has been submitted and accepted for an interactive job, the user will no longer be on the relatively small login nodes, and will have access to the resources requested on the :ref:`def_compute_nodes`. In other words, your terminal session will move from a small (virtual) computer you share with many people to a large computer you share with very few people. All jobs are either :ref:`def_batch_jobs` or interactive jobs.  
+An interactive job is a way of testing your program and data on a cluster without negatively impacting the :ref:`def_login_node`. Once a request has been submitted and accepted for an interactive job, the user will no longer be on the relatively small login nodes, and will have access to the resources requested on the :ref:`def_compute_nodes`. In other words, your terminal session will move from a small (virtual) computer you share with many people to a large computer you share with very few people. All jobs are either a :ref:`def_batch_job` or an interactive job.  
 
 .. _def_job_scheduler:
 
@@ -138,14 +138,14 @@ The module command is a means of providing access to different versions of softw
 Management Plane
 ----------------
 
-The Management Plane is the set of servers that sit above or adjacent to the :ref:`def_compute_node`. These servers are used to manage the system, manage the storage, or manage the network. User's have access to the :ref:`def_login_node` and :ref:`def_data_transfer_node`. Other servers include the :ref:`def_head_node`. 
+The Management Plane is the set of servers that sit above or adjacent to the :ref:`def_compute_nodes`. These servers are used to manage the system, manage the storage, or manage the network. User's have access to the :ref:`def_login_node` and :ref:`def_data_transfer_node`. Other servers include the :ref:`def_head_node`. 
 
 .. _def_mpi:
 
 MPI
 ---
 
-Message Passing Infrastructure (MPI) is a technology for running :ref:`def_compute_jobs` on more than :ref:`def_compute_node`. Designed for situations where parts of the job can run on independent nodes with the results being transferred to other nodes for the next part of the job to be run.
+Message Passing Infrastructure (MPI) is a technology for running a :ref:`def_batch_job` on more than one :ref:`def_compute_nodes`. Designed for situations where parts of the job can run on independent nodes with the results being transferred to other nodes for the next part of the job to be run.
 
 .. _def_network_drive:
 
@@ -159,7 +159,7 @@ A network drive is a drive that is independant from the cluster.
 Queued Jobs 
 -----------
 
-Queued jobs are eligible to run but are waiting for a :ref:`def_compute_node` that matches their requirements to become available. Which idle job will be assigned to a compute node next depends on the :ref:`def_job_scheduler`.
+Queued jobs are eligible to run but are waiting for a :ref:`def_compute_nodes` that matches their requirements to become available. Which idle job will be assigned to a compute node next depends on the :ref:`def_job_scheduler`.
 These can be seen by running :code:`qstat` and looking for a Q in the second last column. See :ref:`more_info_from_pbs`
 
 .. _def_resource_manager:
@@ -167,7 +167,7 @@ These can be seen by running :code:`qstat` and looking for a Q in the second las
 Resource Manager 
 ----------------
 
-A resource manager works with the :ref:`def_job_scheduler` to manage running jobs on a cluster. Amongst other tasks it receives and parses job submissions, starts jobs on :ref:`def_compute_nodes`, monitors jobs, kills jobs, and manages how many :ref:`def_cpu_cores` are available on each :ref:`def_compute_node`
+A resource manager works with the :ref:`def_job_scheduler` to manage running jobs on a cluster. Amongst other tasks it receives and parses job submissions, starts jobs on :ref:`def_compute_nodes`, monitors jobs, kills jobs, and manages how many :ref:`def_cpu_core` are available on each :ref:`def_compute_nodes`
 
 .. _def_scratch_space:
 
