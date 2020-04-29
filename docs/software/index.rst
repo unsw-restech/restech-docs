@@ -210,7 +210,7 @@ This sets the heap memory to 1GB. If you need more, set the environment variable
 
 ::
 
-    export _JAVA_OPTIONS -Xmx5g
+    export _JAVA_OPTIONS="-Xmx5g"
 
 .. _perl:
 
