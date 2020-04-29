@@ -13,7 +13,7 @@ Welcome to Katana User's documentation!
    :glob:
 
    help_and_support
-   using_katana/index
+   About Katana <using_katana/index>
    using_katana/accessing_katana
    using_katana/running_jobs
    Storage <storage>

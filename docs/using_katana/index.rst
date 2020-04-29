@@ -1,13 +1,8 @@
-.. _using_katana:
+.. _about_katana:
 
 ============
-Using Katana
+About Katana
 ============
-
-.. contents::
-   :depth: 1
-   :local:
-   :backlinks: top 
 
 .. toctree::
    :maxdepth: 1
@@ -17,10 +12,7 @@ Using Katana
    accessing_katana
    running_jobs
 
-.. _about_katana:
 
-About Katana
-============
 
 Katana is a shared computational cluster located on campus at UNSW that has been designed to provide easy access to computational resources. With over 4000 CPU cores spread over a large number of compute nodes each with up to 1Tb of memory, Katana provides a flexible compute environment where users can run jobs that wouldn't be possible or practical on their desktop or laptop. For full details of the compute nodes including a full list see the compute node information section below.
 
