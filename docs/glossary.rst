@@ -154,6 +154,14 @@ Network Drive
 
 A network drive is a drive that is independant from the cluster. 
 
+
+.. _def_queue:
+
+Queue
+-----
+
+All submitted jobs are put into a queue. Each queue has a collection of resources available to it. As those resources become available, new jobs will be assigned to those resources. Job prioritisation is done by the scheduler and depends on a number of factors including length of wait time and total resource use by user over the previous month.
+
 .. _def_queued_jobs:
 
 Queued Jobs 

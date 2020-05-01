@@ -20,10 +20,8 @@ To apply for an account you can send an email to the `UNSW IT Service Centre <IT
 Connecting to Katana
 ====================
 
-Once you have an account on Katana then you can log on to it using the instructions in this section or by following the instructions you receive in your introductory email.
-
 .. note:: 
-    When you are connecting to Katana via :code:`katana.restech.unsw.edu.au` you are connecting to one of two login nodes :code:`katana1.restech.unsw.edu.au` and :code:`katana2.restech.unsw.edu.au`. If it is important that you connect to the same login node each time then you should change :code:`katana.restech.unsw.edu.au` for one of those addresses in the instructions below.
+    When you are connecting to Katana via :code:`katana.restech.unsw.edu.au` you are connecting to one of two login nodes :code:`katana1.restech.unsw.edu.au` and :code:`katana2.restech.unsw.edu.au`. 
 
 Linux and Mac
 -------------
@@ -50,6 +48,8 @@ If you require an interactive graphical session to Katana then you can use the X
 
 Start X2Go and create a session for Katana. The details that you need to enter for the session are:
 
+:: 
+
     Session name: Katana
     Host: katana.restech.unsw.edu.au
     Login: zID
@@ -59,6 +59,8 @@ Start X2Go and create a session for Katana. The details that you need to enter f
 
 .. note:: 
     If you use X2Go from a Mac then you may get the following errors:
+
+    ::
 
         SSH daemon failed to open the application's public host key.
         Connection failed Cannot open file -
