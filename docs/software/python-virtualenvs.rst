@@ -25,7 +25,7 @@ We will make a directory in which we can keep many venvs. What I found was that 
 
 In Linux we can make a directory or file invisible by naming it with a leading dot:
 
-::
+.. code:: bash
 
     [z1234567@katana2 ~]$ mkdir /home/z1234567/.venvs/
 
@@ -35,7 +35,7 @@ Setting up the virtual environment - creation and activation
 
 I'll be using the latest version of Python available to me. Since this is one of the modules that we offer, I can use it with the understanding that it will be there indefinitely.
 
-::
+.. code:: bash
 
     [z1234567@katana2 ~]$ module load python/3.7.4
     [z1234567@katana2 ~]$ which python3
@@ -43,13 +43,13 @@ I'll be using the latest version of Python available to me. Since this is one of
     z1234567@katana2 ~]$ python3 -m venv /home/z1234567/.venvs/venv-tutorial-1
 
 
-That's it, we are done. If you want to take a look under the hood, see `what's in my virtualenv? <venv-internals.md>`_
+That's it, we are done. If you want to take a look under the hood, see `what's in my virtualenv? <python-virtualenv-internals.rst>`_
 
 Next, we need to **activate** our venv. This makes our virtualenv our current environment. To activate, we execute :code:`source /path/to/venv/bin/activate`. Note that after activation, the prompt changes to make it clear you are now in a venv. You can see the change in which versions of :code:`python3` and :code:`pip3` are available before and after activation:
 
 Before we activate our environment
 
-::
+.. code:: bash
 
     [z1234567@katana2 ~]$ which python3; which pip3
     /apps/python/3.7.4/bin/python3
@@ -58,14 +58,15 @@ Before we activate our environment
 
 Activation
 
-::
+.. code:: bash
 
     [z1234567@katana2 ~]$ source ~/.venvs/venv-tutorial-1/bin/activate
 
 
 After activation, our python binaries are not the defaults, but the versions in our *venv*
 
-::
+.. code:: bash
+
     (venv-tutorial-1) [z1234567@katana2 ~]$ which python3; which pip3
     ~/.venvs/venv-tutorial-1/bin/python3
     ~/.venvs/venv-tutorial-1/bin/pip3
@@ -79,7 +80,7 @@ Using `pip3 <https://pypi.org/project/pip/>`_ we can see whats installed and ins
 
 Now that we are using the venv, we can list what's in the venv, and then install a new package:
 
-::
+.. code:: bash
 
     (venv-tutorial-1) [z1234567@katana2 ~]$ pip3 list
     Package    Version
@@ -92,7 +93,7 @@ Now that we are using the venv, we can list what's in the venv, and then install
 
 At this point - before any work is done, and while using your venv - it's a great time to perform that update.
 
-::
+.. code:: bash
 
     (venv-tutorial-1) [z1234567@katana2 ~]$ pip install --upgrade pip
     Collecting pip
@@ -125,7 +126,7 @@ Installing software
 
 And then package installation is as easy as using :code:`pip install ...`:
 
-::
+.. code:: bash
 
     (venv-tutorial-1) [z1234567@katana2 ~]$ pip install numpy
     Collecting numpy
@@ -146,14 +147,14 @@ Exiting the venv, and coming around again
 
 To leave a venv, you use the :code:`deactivate` command like this:
 
-::
+.. code:: bash
 
     (venv-tutorial-1) [z1234567@katana2 ~]$ deactivate 
     [z1234567@katana2 ~]$
 
 Notice how the prompt returned to the way it was? Let's create a new venv:
 
-::
+.. code:: bash
 
     [z1234567@katana2 ~]$ python3 -m venv /home/z1234567/.venvs/scipy-example
     [z1234567@katana2 ~]$ ls -l ~/.venvs/
@@ -173,7 +174,7 @@ Notice how the prompt returned to the way it was? Let's create a new venv:
 
 When we install SciPy, it automatically knows to install NumPy, a dependency:
 
-::
+.. code:: bash
 
     (scipy-example) [z1234567@katana2 ~]$ pip install scipy
     Collecting scipy
@@ -194,7 +195,7 @@ When we install SciPy, it automatically knows to install NumPy, a dependency:
 
 If you want to install an older version, it's relatively easy
 
-::
+.. code:: bash
 
     (old-scipy-example) [z1234567@katana2 ~]$ pip install scipy==1.2.3
     Collecting scipy==1.2.3
@@ -233,7 +234,7 @@ In that case, your workflow would be:
 
 For example, using the Katana TensorFlow installation and a desire for Jupyter:
 
-::
+.. code:: bash
 
     [z1234567@katana1 ~]$ module load tensorflow/1.14gpu
     [z1234567@katana1 ~]$ python3 -m venv /home/z1234567/.venvs/tf --system-site-packages

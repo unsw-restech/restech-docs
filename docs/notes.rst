@@ -1,3 +1,21 @@
+
+
+OK:
+
+When I tried to run Sentaurus TCAD today on Katana I got this error message regardless of structures I wanted to simulate:
+ 
+“Job failed
+Error: Child process with pid '116643' got the signal 'SIGSEGV' (segmentation violation)
+gjob exits with status 1”
+
+
+Bad
+
+i'm trying to do some work on katana, but it seems that the server is
+slow or not responsive at times. i'm logged in from inside unsw today,
+so working from home shouldn't be the issue.
+
+
 From running_jobs_on_katana
 
 If you want to know what resources you used when your job completes then you can add -M me@unsw.edu.au to your qsub command and you will receive an email when your job completes and we have:

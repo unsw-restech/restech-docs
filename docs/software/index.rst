@@ -145,7 +145,7 @@ Environment modules only affect the particular session in which they are loaded.
 How can I invoke my module commands automatically?
 --------------------------------------------------
 
-The best way of doing this is to add your Module commands to your job scripts. This approach is useful for preserving the required environment for each job. For example:a
+The best way of doing this is to add your Module commands to your job scripts. This approach is useful for preserving the required environment for each job. For example:
 
 ::
 

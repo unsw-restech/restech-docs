@@ -23,10 +23,10 @@ Katana can provide a perfect training or development area before moving on to a 
 System Configuration
 --------------------
 
-- rpm based Linux OSes. RedHat on the management plane, CentOS on the nodes.
+- RPM based Linux OSes. RedHat on the management plane, CentOS on the nodes.
 - PBSPro_ version 19.1.3
-- Large global scratch at /srv/scratch, local scratch at $TMPDIR
-- 12,24,48,100,200 hour queues with prioritisation
+- Large global scratch at /srv/scratch, local scratch at :code:`$TMPDIR`
+- 12,24,48,100,200 hour :code:`walltime` queues with prioritisation - the longer the :code:`walltime` you request, the longer you will wait for it to run.
 
 
 .. _compute_resources:
@@ -42,9 +42,11 @@ Compute
 GPU Compute
 -----------
 
+The most popular use of these nodes is for Tensorflow.
+
 - four GPU capable nodes, Tesla V100-SXM2, 32GB
-- three are dedicate
-- one is general use
+- three are dedicated for the department that owns them
+- one is general use for all researchers
 
 .. _Gadi: https://nci.org.au/our-systems/hpc-systems
 .. _NCI: https://nci.org.au/

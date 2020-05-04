@@ -6,6 +6,8 @@
 Welcome to Katana User's documentation!
 =======================================
 
+This document is available in :download:`pdf format <_static/20200504.katanauser.pdf>` for offline reading.
+
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
@@ -20,6 +22,7 @@ Welcome to Katana User's documentation!
    Software <software/index>
    software/python
    software/python-virtualenvs
+   software/python-virtualenvs-internals
    software/python-jupyter-notebooks
    R and RStudio <software/r>
    reference_data

@@ -21,7 +21,7 @@ Connecting to Katana
 ====================
 
 .. note:: 
-    When you are connecting to Katana via :code:`katana.restech.unsw.edu.au` you are connecting to one of two login nodes :code:`katana1.restech.unsw.edu.au` and :code:`katana2.restech.unsw.edu.au`. 
+    When you are connecting to Katana via :code:`katana.restech.unsw.edu.au` you are connecting to one of two login nodes :code:`katana1.restech.unsw.edu.au` and :code:`katana2.restech.unsw.edu.au`. If you have a long running :ref:`tmux_session` session open, you will need to login to the node on which it was started.
 
 Linux and Mac
 -------------
@@ -42,9 +42,9 @@ From a Windows machine a SSH client such as PuTTY_ or MobaXTerm_ is required.
 Graphical sessions
 ------------------
 
-If you have connected from a Linux machine (or a Mac with X11 support via X11.app or XQuartz) then connecting via SSH will allow you to open graphical applications from the command line. To run these programs you should start an interactive job on one of the compute nodes so that none of the computational processing takes place on the head node.
+Some software - :ref:`Matlab`, :ref:`r` and :ref:`jupyter_notebooks` being among the most popular - are easier with a graphical session. If you require an interactive graphical session to Katana then you can use the X2Go_ client.
 
-If you require an interactive graphical session to Katana then you can use the X2Go_ client. 
+If you have connected from a Linux machine (or a Mac with X11 support via X11.app or XQuartz) then connecting via SSH will allow you to open graphical applications from the command line. To run these programs you should start an interactive job on one of the compute nodes so that none of the computational processing takes place on the head node.
 
 Start X2Go and create a session for Katana. The details that you need to enter for the session are:
 

@@ -15,13 +15,16 @@ Jobs are submitted using the :code:`qsub` command. There are two types of job th
 
 An **interactive job** provides a shell session on a :ref:`def_compute_nodes`. You interact directly with the compute node running the software you need explicitly. Interactive jobs are useful for experimentation, debugging, and planning for **batch jobs**. 
 
-In contrast, a :ref:`def_batch_job` is a scripted job that - after submission via :code:`qsub` - runs from start to finish without any user intervention. The vast majority of jobs on the cluster are batch jobs. This type of job is appropriate for production runs of several hours or days. When you submit
+In contrast, a :ref:`def_batch_job` (glossary) is a scripted job that - after submission via :code:`qsub` - runs from start to finish without any user intervention. The vast majority of jobs on the cluster are batch jobs. This type of job is appropriate for production runs of several hours or days. When you submit
 
-To submit a batch job you will need to create a job script which specifies the resources that your job requires and calls your program. The general structure of a job script is shown below. TODO: Link
+To submit :ref:`batch_jobs` (detailed instruction) you will need to create a job script which specifies the resources that your job requires and calls your program. The general structure of a job script is shown below. TODO: Link
+
+.. important::
+    All jobs go into a :ref:`def_queue` while waiting for resources to become available. The length of time your jobs wait in a queue for resources depends on a number of factors.
 
 The main resources available for use are Memory, CPU cores (number of CPUs) and Walltime (how long you want the CPUs for). These need to be considered carefully when writing your job script, since the decisions you make will impact which queue your jobs ends up on.
 
-As you request more memory, the number of available queues goes down. The GB limits at which the number of queues decreases are 124, 180, 248, 370, 750 and 1000.
+As you request more memory, the number of available queues goes down. The memory limits, in GB, at which the number of queues decreases are 124, 180, 248, 370, 750 and 1000.
 
 Similarly, when considering the number of CPU cores, the available resources reduce at 16, 20, 24, 28, 32, 44 and 64 CPU cores.
 
@@ -85,7 +88,7 @@ The following script simply executes a pre-compiled program ("myprogram") in the
  
     ./myprogram
 
-This script can be submitted to the cluster with :code:`qsub` and it will become a job and be assigned to a queue. If the script is in a file called :code:`myjob.pbs` then Dthe following command will submit the job with the default resource requirements (1 CPU core for 1 hour and 1Gb of memory):
+This script can be submitted to the cluster with :code:`qsub` and it will become a job and be assigned to a queue. If the script is in a file called :code:`myjob.pbs` then the following command will submit the job with the default resource requirements (1 CPU core for 1 hour and 1Gb of memory):
 
 .. code-block:: bash
 
@@ -334,7 +337,7 @@ Show all jobs on the system
 List just my jobs
 ~~~~~~~~~~~~~~~~~
 
-You can use either your zid or the :ref:`def_environment_variable` :code:`$USER`
+You can use either your **ZID** or the :ref:`def_environment_variable` :code:`$USER`
 
 .. code-block:: bash
 
@@ -459,7 +462,8 @@ Keep your jobs under 12 hours if possible
 
 If you request more than 12 hours of :code:`WALLTIME` then you can only use the nodes bought by your school or research group. Keeping your job's run time request under 12 hours means that it can run on any node in the cluster.
 
-Two 10 hour jobs will probably finish sooner that one 20 hour job
+.. important::
+    Two 10 hour jobs will probably finish sooner that one 20 hour job.
 
 In fact, if there is spare capacity on Katana, which there is most of the time, six 10 hours jobs will finish before a single 20 hour job will.
 Requesting more resources for your job decreases the places that the job can run

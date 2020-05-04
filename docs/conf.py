@@ -28,7 +28,7 @@ copyright = '2020, Lachlan Simpson'
 author = 'Lachlan Simpson'
 
 # The full version, including alpha/beta/rc tags
-release = '0.1'
+release = '0.5'
 
 
 # -- General configuration ---------------------------------------------------
@@ -61,3 +61,8 @@ html_theme = 'press'
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['_static']
+
+# -- Options for PDF/Latex output -------------------------------------------
+
+latex_engine = 'xelatex'
+

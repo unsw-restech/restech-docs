@@ -12,6 +12,11 @@ Katana Storage Locations
 
 The storage on Katana is split into several different types, each of which serves a different purpose. 
 
+.. important::
+    We have just said *each of which serves a different purpose*. Despite that, there will be overlap. And personal preference. In most cases it will be obvious where to put your information. If it isn't and you need help with your decision making, you can `email <rds@unsw.edu.au>`_ the `Research Data <https://research.unsw.edu.au/research-data-management-unsw>`_ team for advice. They are friendly people.
+
+
+
 Cluster Home Drive
 ==================
 
@@ -248,7 +253,7 @@ The UNSW Data Archive is the primary research storage facility provided by UNSW.
 To help researchers make use of this system the Katana Data Mover has a script that you can use to copy files from Katana into a project on the Data Archive system.
 
 .. note::
-    To use this script you must have access to the UNSW Data Archive which requires setting up a Research Data Management Plan.
+    To use this script you must have access to the UNSW Data Archive which requires setting up a `Research Data Management Plan <https://research.unsw.edu.au/research-data-management-unsw>`_.
 
 .. note::
     You cannot use the data archive via Filezilla or WinSCP - you will need to use the command line.
@@ -311,16 +316,6 @@ To get data **from** the archive, we use :code:`download.sh`
 Storage FAQ
 ===========
 
-Can I put my files in my home drive (H-drive)?
-==============================================
-
-You can put your files in your H-Drive for storage but to use them for a job your files need to be in your cluster home drive and not your H-drive as your H-drive is only available on the head node and not the compute nodes. Have a look at the page storage page for a discussion about the different storage locations and the copying files page for information about copying files to your cluster home drive.
-
-Where does Standard Output (STDOUT) go when a job is run?
-=========================================================
-
-By default Standard Output is redirected to storage on the node and then transferred when the job is completed. If you are generating data you should redirect :code:`STDOUT` to a different location. The best location depends on the characteristics of your job but in general all :code:`STDOUT` should be redirected to local scratch.
-
 What storage is available to me?
 ================================
 
@@ -347,7 +342,7 @@ Why am I having trouble creating a symbolic link?
 Not all filesystems support symbolic links. The most common examples are some Windows network shares. On Katana this includes Windows network shares such as hdrive. The target of the symbolic link can be within such a filesystem, but the link itself must be on a filesystem that supports symbolic links, e.g. the rest of your home directory or your scratch directory. 
 
 What is the Disk Usage message that I get when I log on to a cluster?
-====================================================================-
+=====================================================================
 
 When you log on to Katana a command is run to display how much space you currently have available in the different file systems.
 
@@ -380,6 +375,11 @@ Can I run a program directly from scratch or my home drive after logging in to t
 ===================================================================================================================
 
 As the file server does not have any computational resources you would be running the job from the head node on the cluster. If you need to enter information when running your job then you should start an interactive job.
+
+Where does Standard Output (STDOUT) go when a job is run?
+=========================================================
+
+By default Standard Output is redirected to storage on the node and then transferred when the job is completed. If you are generating data you should redirect :code:`STDOUT` to a different location. The best location depends on the characteristics of your job but in general all :code:`STDOUT` should be redirected to local scratch.
 
 
 
