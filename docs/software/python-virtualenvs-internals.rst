@@ -1,7 +1,13 @@
 Virtual Environments from the inside
 ====================================
 
-We've built a venv in our :code:`~/.venvs directory`. Let's take a look inside. This presumes you have used the command `[z1234567@katana2 src]$ python3 -m venv /home/z1234567/.venvs/venv-tutorial-1` to set up your virtualenv.
+We've built a venv in our :code:`~/.venvs directory`. Let's take a look inside. This presumes you have used the command 
+
+.. code:: bash
+
+    [z1234567@katana2 src]$ python3 -m venv /home/z1234567/.venvs/venv-tutorial-1
+
+to set up your virtualenv.
 
 Here is a quick overview of the basics.
 
