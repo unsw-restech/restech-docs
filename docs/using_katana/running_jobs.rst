@@ -565,13 +565,17 @@ It depends. Some aspects are fairly common across different clusters (e.g. wallt
 How can I see exactly what resources (I/O, CPU, memory and scratch) my job is currently using?
 ----------------------------------------------------------------------------------------------
 
-If you run
+From *outside* the job, you can run :code:`qstat -f <jobid>`. 
+
+If, for instance, you wanted to measure different steps of your process, then inside your jobscript you can put :code:`qstat -f $PBS_JOBID`
+
+For finer grained detail, you may need to get access to the worker node that the job is running on:
 
 .. code-block:: bash 
 
     qstat -nru $USER
 
-then you can see a list of your running jobs and where they are running. You can then use ssh to log on to the individual nodes and run top or dtop to see the load on the node including memory usage for each of the processes on the node. For more detailed information on the resources that your job is using, visit the page on job profiling.
+then you can see a list of your running jobs and where they are running. You can then use ssh to log on to the individual nodes and run top or dtop to see the load on the node including memory usage for each of the processes on the node.
 
 What is the difference between virtual memory (VMEM or VSZ) and physical memory (MEM or RSZ)?
 ---------------------------------------------------------------------------------------------

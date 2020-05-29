@@ -21,7 +21,7 @@ Connecting to Katana
 ====================
 
 .. note:: 
-    When you are connecting to Katana via :code:`katana.restech.unsw.edu.au` you are connecting to one of two login nodes :code:`katana1.restech.unsw.edu.au` and :code:`katana2.restech.unsw.edu.au`. If you have a long running :ref:`tmux_session` session open, you will need to login to the node on which it was started.
+    When you are connecting to Katana via :code:`katana.restech.unsw.edu.au` you are connecting to one of two login nodes :code:`katana1.restech.unsw.edu.au` or :code:`katana2.restech.unsw.edu.au`. If you have a long running :ref:`tmux_session` session open, you will need to login to the node on which it was started.
 
 Linux and Mac
 -------------

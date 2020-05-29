@@ -13,12 +13,12 @@ Frequently Asked Questions
 Where is the best place to store my code?
 -----------------------------------------
 
-The best place to store source code is to use a version control server.  This means that you will be able to keep every version of your code and revert to an earlier version if you require.
+The best place to store source code is to use a version control server.  This means that you will be able to keep every version of your code and revert to an earlier version if you require. `UNSW has a central github account <https://research.unsw.edu.au/github>`_, but we encourage you to create your own.
 
 I just got some money from a grant. What can I spend it on?
 -----------------------------------------------------------
 
-There are a number of different options for using research funding to improve your ability to run computationally intensive programs. The best starting point is to speak to the Research Technology Services team to figure out the different options.
+There are a number of different options for using research funding to improve your ability to run computationally intensive programs. The best starting point is to `contact the Research Technology Services team`_ team to figure out the different options. 
 
 Can I access Katana from outside UNSW?
 --------------------------------------
@@ -41,7 +41,7 @@ If you use Katana for calculations that result in a publication then you should 
 
 If you are using nodes that have been purchased using an external funding source you should also acknowledge the source of those funds.
 
-For information about `acknowledging ARC funding <http://www.arc.gov.au/about_arc/acknowledgementform.htm>`_
+For information about `acknowledging ARC funding <https://www.arc.gov.au/acknowledging-arc>`_
 
 Your School or Research Group may also have policies for compute nodes that they have purchased.
 
@@ -52,4 +52,3 @@ If you are using facilities at Intersect_ or NCI_ in addition to Katana they may
 
 .. _Intersect: https://intersect.org.au/attribution
 .. _NCI: http://nci.org.au/users/nci-terms-and-conditions-access
-

@@ -319,7 +319,7 @@ Storage FAQ
 What storage is available to me?
 ================================
 
-Katana provides three different storage areas, cluster home drives, local scratch and global scratch. The storage page has additional information on the differences and advantages of each of the different types of storage. You may also want to consider storing your code using a version control seryive like GitHub. This means that you will be able to keep every version of your code and revert to an earlier version if you require.
+Katana provides three different storage areas, cluster home drives, local scratch and global scratch. The storage page has additional information on the differences and advantages of each of the different types of storage. You may also want to consider storing your code using a version control service like GitHub. This means that you will be able to keep every version of your code and revert to an earlier version if you require.
 
 Which storage is fastest?
 =========================

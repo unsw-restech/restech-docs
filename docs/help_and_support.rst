@@ -11,6 +11,7 @@ Scheduled Maintenance
 .. attention::
     There is no maintenance scheduled for the moment. 
 
+.. contact_the_Research_Technology_Services_team::
 
 Who to contact
 ==============
