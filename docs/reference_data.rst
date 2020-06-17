@@ -1,8 +1,8 @@
 .. _reference_data:
 
-==============
+##############
 Reference Data
-==============
+##############
 
 We keep a number of reference data sets available on Katana at :code:`/data/` so that we don't accidentally - for instance - end up with 150 copies of the Human Genome in user's home directories.
 

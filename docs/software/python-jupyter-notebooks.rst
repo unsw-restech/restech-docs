@@ -1,10 +1,10 @@
-.. _jupyter_notebooks:
-
+#################
 Jupyter Notebooks
-=================
+#################
 
+*******************************************************************************************************
 or, the '"it's slightly frustrating, but can be done using the tools" way of running Juypter on Katana'
-----------------------------------------------------------------------------------------------------------
+*******************************************************************************************************
 
 
 Background
@@ -22,7 +22,7 @@ These two steps are independant of each other - there is no need to do them in o
 
 1. You will need to be able to connect to Katana via Remote Desktop. There are Instructions on how to do this in :ref:`graphical_session`. 
 
-2. You will need to create a Python Virtual Environment (:ref:`python_virtual_environments`), activate it, and install Jupyter via the command :code:`pip install jupyter`
+2. You will need to create a Python Virtual Environment (:ref:`Python Virtual Environments`), activate it, and install Jupyter via the command :code:`pip install jupyter`
 
 Reconnection
 ============
@@ -40,7 +40,7 @@ Everytime you would like to use your Jupyter notebook, you will need to:
 
 Caveat: if you get an error about a port being busy, launch Jupyter with this command, susbstituting XXXX with a large number: 
 
-:: 
+.. code-block:: bash
 
     jupyter-notebook --port=XXXX
 
@@ -50,4 +50,3 @@ IMPORTANT FINAL POINT
 =====================
 
 We will forcibly kill Jupyter notebooks we find running on katana1 or katana2 (collectively known as "the head nodes") without warning or explanation beyond this paragraph. All jupyter notebooks must be started in an :ref:`interactive_session` on Katana.
-

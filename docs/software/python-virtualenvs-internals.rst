@@ -1,9 +1,10 @@
+####################################
 Virtual Environments from the inside
-====================================
+####################################
 
 We've built a venv in our :code:`~/.venvs directory`. Let's take a look inside. This presumes you have used the command 
 
-.. code:: bash
+.. code-block:: bash
 
     [z1234567@katana2 src]$ python3 -m venv /home/z1234567/.venvs/venv-tutorial-1
 
@@ -13,7 +14,7 @@ Here is a quick overview of the basics.
 
 We can see there is a directory in :code:`~/.venvs` that has the same name as the virtualenv we created.
 
-.. code:: bash
+.. code-block:: bash
 
     [z1234567@katana2 ~]$ ls -l ~/.venvs/
     total 0 
@@ -21,7 +22,7 @@ We can see there is a directory in :code:`~/.venvs` that has the same name as th
 
 Inside that directory we can see some more directories. The two important directories here are :code:`bin` and :code:`lib`.
 
-.. code:: bash
+.. code-block:: bash
 
     [z1234567@katana2 ~]$ ls -l ~/.venvs/venv-tutorial-1/
     total 8
@@ -33,7 +34,7 @@ Inside that directory we can see some more directories. The two important direct
 
 In :code:`bin` you will see executables. The main one of note is :code:`activate`.
 
-.. code:: bash
+.. code-block:: bash
 
     [z1234567@katana2 ~]$ ls -l ~/.venvs/venv-tutorial-1/bin/
     total 36
@@ -52,7 +53,7 @@ In :code:`bin` you will see executables. The main one of note is :code:`activate
 
 In :code:`lib` we need to traverse a few more directories, but eventually we will see where the packages are installed. As you can see, :code:`pip` and :code:`setuptools` are already installed. These are the default:
 
-.. code:: bash
+.. code-block:: bash
 
     [z1234567@katana2 ~]$ ls -l ~/.venvs/venv-tutorial-1/lib/python3.7/site-packages/
     total 16
@@ -63,6 +64,3 @@ In :code:`lib` we need to traverse a few more directories, but eventually we wil
     drwx------. 2 z1234567 unsw   40 Mar 23 11:45 **pycache**
     drwx------. 6 z1234567 unsw 4096 Mar 23 11:45 setuptools
     drwx------. 2 z1234567 unsw 4096 Mar 23 11:45 setuptools-40.8.0.dist-info
-
-
-

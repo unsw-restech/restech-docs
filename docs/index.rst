@@ -15,16 +15,9 @@ This document is available in :download:`pdf format <_static/20200504.katanauser
    :glob:
 
    help_and_support
-   About Katana <using_katana/index>
-   using_katana/accessing_katana
-   using_katana/running_jobs
+   Katana <using_katana/index>
    Storage <storage>
    Software <software/index>
-   software/python
-   software/python-virtualenvs
-   software/python-virtualenvs-internals
-   software/python-jupyter-notebooks
-   R and RStudio <software/r>
    reference_data
    faq
    glossary

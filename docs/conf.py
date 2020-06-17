@@ -18,8 +18,8 @@ import sys, os
 
 sys.path.append(os.path.abspath('sphinxext'))
 
-extensions = ['rst2pdf.pdfbuilder']
-
+extensions = ['rst2pdf.pdfbuilder', 'rinoh.frontend.sphinx']
+master_doc = 'index'
 
 # -- Project information -----------------------------------------------------
 
@@ -65,4 +65,10 @@ html_static_path = ['_static']
 # -- Options for PDF/Latex output -------------------------------------------
 
 latex_engine = 'xelatex'
+
+# Rinohtype output conf
+rinoh_documents = [('index',            # top-level file (index.rst)
+                    'katanausage.pdf',           # output (target.pdf)
+                    'Katana Usage',   # document title
+                    'Lachlan Simpson')]   # document author
 

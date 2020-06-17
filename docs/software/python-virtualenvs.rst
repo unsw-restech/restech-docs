@@ -1,11 +1,10 @@
-.. _python_virtual_environments:
+###########################
+Python Virtual Environments
+###########################
 
-====================
-Virtual Environments
-====================
-
+**************************************************************************************************
 or how to run a python library until the admins install it (or what to do if they wont install it)
----------------------------------------------------------------------------------------------------
+**************************************************************************************************
 
 Background
 ==========
@@ -25,7 +24,7 @@ We will make a directory in which we can keep many venvs. What I found was that 
 
 In Linux we can make a directory or file invisible by naming it with a leading dot:
 
-.. code:: bash
+.. code-block:: bash
 
     [z1234567@katana2 ~]$ mkdir /home/z1234567/.venvs/
 
@@ -35,7 +34,7 @@ Setting up the virtual environment - creation and activation
 
 I'll be using the latest version of Python available to me. Since this is one of the modules that we offer, I can use it with the understanding that it will be there indefinitely.
 
-.. code:: bash
+.. code-block:: bash
 
     [z1234567@katana2 ~]$ module load python/3.7.4
     [z1234567@katana2 ~]$ which python3
@@ -49,7 +48,7 @@ Next, we need to **activate** our venv. This makes our virtualenv our current en
 
 Before we activate our environment
 
-.. code:: bash
+.. code-block:: bash
 
     [z1234567@katana2 ~]$ which python3; which pip3
     /apps/python/3.7.4/bin/python3
@@ -58,14 +57,14 @@ Before we activate our environment
 
 Activation
 
-.. code:: bash
+.. code-block:: bash
 
     [z1234567@katana2 ~]$ source ~/.venvs/venv-tutorial-1/bin/activate
 
 
 After activation, our python binaries are not the defaults, but the versions in our *venv*
 
-.. code:: bash
+.. code-block:: bash
 
     (venv-tutorial-1) [z1234567@katana2 ~]$ which python3; which pip3
     ~/.venvs/venv-tutorial-1/bin/python3
@@ -73,14 +72,14 @@ After activation, our python binaries are not the defaults, but the versions in 
 
 
 pip3 - the Python package manager ("the *Package Installer for Python*")
-==================================================================================
+========================================================================
 
 Using `pip3 <https://pypi.org/project/pip/>`_ we can see whats installed and install new packages. You will often see packages give installation advice for pip (Conda is another popular system).
 
 
 Now that we are using the venv, we can list what's in the venv, and then install a new package:
 
-.. code:: bash
+.. code-block:: bash
 
     (venv-tutorial-1) [z1234567@katana2 ~]$ pip3 list
     Package    Version
@@ -93,7 +92,7 @@ Now that we are using the venv, we can list what's in the venv, and then install
 
 At this point - before any work is done, and while using your venv - it's a great time to perform that update.
 
-.. code:: bash
+.. code-block:: bash
 
     (venv-tutorial-1) [z1234567@katana2 ~]$ pip install --upgrade pip
     Collecting pip
@@ -126,7 +125,7 @@ Installing software
 
 And then package installation is as easy as using :code:`pip install ...`:
 
-.. code:: bash
+.. code-block:: bash
 
     (venv-tutorial-1) [z1234567@katana2 ~]$ pip install numpy
     Collecting numpy
@@ -147,14 +146,14 @@ Exiting the venv, and coming around again
 
 To leave a venv, you use the :code:`deactivate` command like this:
 
-.. code:: bash
+.. code-block:: bash
 
     (venv-tutorial-1) [z1234567@katana2 ~]$ deactivate 
     [z1234567@katana2 ~]$
 
 Notice how the prompt returned to the way it was? Let's create a new venv:
 
-.. code:: bash
+.. code-block:: bash
 
     [z1234567@katana2 ~]$ python3 -m venv /home/z1234567/.venvs/scipy-example
     [z1234567@katana2 ~]$ ls -l ~/.venvs/
@@ -174,7 +173,7 @@ Notice how the prompt returned to the way it was? Let's create a new venv:
 
 When we install SciPy, it automatically knows to install NumPy, a dependency:
 
-.. code:: bash
+.. code-block:: bash
 
     (scipy-example) [z1234567@katana2 ~]$ pip install scipy
     Collecting scipy
@@ -195,7 +194,7 @@ When we install SciPy, it automatically knows to install NumPy, a dependency:
 
 If you want to install an older version, it's relatively easy
 
-.. code:: bash
+.. code-block:: bash
 
     (old-scipy-example) [z1234567@katana2 ~]$ pip install scipy==1.2.3
     Collecting scipy==1.2.3
@@ -234,7 +233,7 @@ In that case, your workflow would be:
 
 For example, using the Katana TensorFlow installation and a desire for Jupyter:
 
-.. code:: bash
+.. code-block:: bash
 
     [z1234567@katana1 ~]$ module load tensorflow/1.14gpu
     [z1234567@katana1 ~]$ python3 -m venv /home/z1234567/.venvs/tf --system-site-packages

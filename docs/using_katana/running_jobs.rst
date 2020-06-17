@@ -1,26 +1,21 @@
 .. _running_jobs:
 
-======================
+######################
 Running Jobs on Katana
-======================
+######################
 
-.. contents::
-   :depth: 1 
-   :local:
-   :backlinks: top 
+The :term:`Login Node` of a cluster is a shared resource for all users and is used for preparing, submitting and managing jobs. Never run any computationally intensive processes on the login nodes. Jobs are submitted from the login node, which delivers them to the :term:`Head Node` for job and resource management, then they actually run on one or more of the compute nodes. Different clusters use different tools to manage resources and schedule jobs - OpenPBS_ and SLURM_ are two popular systems. Katana, like NCI's Gadi, uses OpenPBS_ for this purpose.
 
-The :ref:`def_login_node` of a cluster is a shared resource for all users and is used for preparing, submitting and managing jobs. Never run any computationally intensive processes on the login nodes. Jobs are submitted from the login node, which delivers them to the :ref:`def_head_node` for job and resource management, then they actually run on one or more of the compute nodes. Different clusters use different tools to manage resources and schedule jobs - PBSPro_ and SLURM_ are two popular systems. Katana, like NCI's Gadi, uses PBSPro_ for this purpose.
+Jobs are submitted using the :code:`qsub` command. There are two types of job that :code:`qsub` will accept: interactive jobs and batch jobs. Regardless of type, the resource manager will put your job in a :term:`Queue`.
 
-Jobs are submitted using the :code:`qsub` command. There are two types of job that :code:`qsub` will accept: interactive jobs and batch jobs. Regardless of type, the resource manager will put your job in a :ref:`def_queue`.
+An **interactive job** provides a shell session on a :term:`Compute Nodes`. You interact directly with the compute node running the software you need explicitly. Interactive jobs are useful for experimentation, debugging, and planning for **batch jobs**. 
 
-An **interactive job** provides a shell session on a :ref:`def_compute_nodes`. You interact directly with the compute node running the software you need explicitly. Interactive jobs are useful for experimentation, debugging, and planning for **batch jobs**. 
+In contrast, a :term:`Batch Job` is a scripted job that - after submission via :code:`qsub` - runs from start to finish without any user intervention. The vast majority of jobs on the cluster are batch jobs. This type of job is appropriate for production runs of several hours or days. When you submit
 
-In contrast, a :ref:`def_batch_job` (glossary) is a scripted job that - after submission via :code:`qsub` - runs from start to finish without any user intervention. The vast majority of jobs on the cluster are batch jobs. This type of job is appropriate for production runs of several hours or days. When you submit
-
-To submit :ref:`batch_jobs` (detailed instruction) you will need to create a job script which specifies the resources that your job requires and calls your program. The general structure of a job script is shown below. TODO: Link
+To submit a :term:`Batch Job` you will need to create a job script which specifies the resources that your job requires and calls your program. The general structure of `A Job Script`_ is shown below. TODO: Link
 
 .. important::
-    All jobs go into a :ref:`def_queue` while waiting for resources to become available. The length of time your jobs wait in a queue for resources depends on a number of factors.
+    All jobs go into a :term:`Queue` while waiting for resources to become available. The length of time your jobs wait in a queue for resources depends on a number of factors.
 
 The main resources available for use are Memory, CPU cores (number of CPUs) and Walltime (how long you want the CPUs for). These need to be considered carefully when writing your job script, since the decisions you make will impact which queue your jobs ends up on.
 
@@ -39,8 +34,9 @@ Jobs have the following restrictions:
 .. _interactive_job:
 .. _interactive_session:
 
+****************
 Interactive Jobs
-================
+****************
 
 An interactive job or interactive session is a session on a compute node with the required physical resources for the period of time requested. To request an interactive job, add the -I flag (capital i) to :code:`qsub`. Default sessions will have 1 CPU core, 1GB and 1 hour
 
@@ -70,13 +66,14 @@ Interactive jobs can be particularly useful while developing and testing code fo
 
 .. _batch_jobs:
 
+**********
 Batch Jobs
-==========
+**********
 
 A batch job is a script that runs autonomously on a compute node. The script must contain the necessary sequence of commands to complete a task independently of any input from the user. This section contains information about how to create and submit a batch job on Katana.
 
 Getting Started
----------------
+===============
 
 The following script simply executes a pre-compiled program ("myprogram") in the user's home directory:
 
@@ -102,8 +99,8 @@ As with interactive jobs, the -l (lowercase L) flag can be used to specify resou
     [z1234567@katana ~]$ qsub -l select=1:ncpus=1:mem=4gb,walltime=12:00:00 myjob.pbs
     1238.kman.restech.unsw.edu.au
 
-Job Scripts
------------
+A Job Script
+============
 
 Job scripts offer a much more convenient method for invoking any of the options that can be passed to :code:`qsub` on the command-line. In a shell script, a line starting with # is a comment and will be ignored by the shell interpreter. However, in a job script, a line starting with #PBS can be used to pass options to the :code:`qsub` command.
 
@@ -157,7 +154,7 @@ When a job starts, it needs to know where to save it's output and do it's work. 
 
 There is one last special variable you should know about, especially if you are working with large datasets. The storage on the compute node your job is running on will always be faster than the network drive.
 
-If you use the storage close to the CPUs - in the machine rather than on the shared drives, called :ref:`def_local_scratch` - you can often save hours of time reading and writing across the network. 
+If you use the storage close to the CPUs - in the machine rather than on the shared drives, called :term:`Local Scratch` - you can often save hours of time reading and writing across the network. 
 
 In order to do this, you can copy data to and from the local scratch, called :code:`$TMPDIR`:
 
@@ -191,8 +188,9 @@ Here's the full script as we've described. You can copy this into a text editor 
 
 .. _array_jobs:
 
+**********
 Array Jobs
-==========
+**********
 
 One common use of computational clusters is to do the same thing multiple times - sometimes with slightly different input, sometimes to get averages from randomness within the process. This is made easier with array jobs.
 
@@ -222,8 +220,9 @@ There are some more examples of array jobs including how to group your computati
     TODO: old documentation had examples here. Move all examples to github
 
 
+**************************
 Splitting large Batch Jobs
-==========================
+**************************
 
 If your batch job can be split into multiple steps you may want to split one big job up into a number of smaller jobs. There are a number of reasons to spend the time to implement this.
 
@@ -237,8 +236,9 @@ If your batch job can be split into multiple steps you may want to split one big
 
 .. _state_of_pbs:
 
+************************************************
 Get information about the state of the scheduler
-================================================
+************************************************
 
 When deciding which jobs to run, the scheduler takes the following details into account:
 
@@ -305,18 +305,21 @@ To get information about a particular node, you can use :code:`pbsnodes` but tha
 
 .. _managing_jobs:
 
+***********************
 Managing Jobs on Katana
-=======================
+***********************
 
 Once you have jobs running, you will want visibility of the system so that you can manage them - delete jobs, change jobs, check that jobs are still running.
 
 There are a couple of easy to use commands that help with this process.
 
 qstat
------
+=====
+
+.. _more_info_from_pbs:
 
 Show all jobs on the system
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
+---------------------------
 
 :code:`qstat` gives very long output. Consider piping to :code:`less`
 
@@ -335,9 +338,9 @@ Show all jobs on the system
     ...
 
 List just my jobs
-~~~~~~~~~~~~~~~~~
+-----------------
 
-You can use either your **ZID** or the :ref:`def_environment_variable` :code:`$USER`
+You can use either your **ZID** or the :term:`Environment Variable` :code:`$USER`
 
 .. code-block:: bash
 
@@ -365,7 +368,7 @@ If you add the :code:`-s` flag, you will get slightly more status information.
         -- 
 
 List information about a particular job
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+---------------------------------------
 
 .. code-block:: bash
 
@@ -412,7 +415,7 @@ List information about a particular job
 
 
 qdel
-----
+====
 
 Remove a job from the queue or kill it if it's started. To remove an array job, you must include the square braces and they will need to be escaped. In that situation you use :code:`qdel 12345\[\]`. Uses the :code:`$JOBID` 
 
@@ -422,7 +425,7 @@ Remove a job from the queue or kill it if it's started. To remove an array job, 
 
 
 qalter
-------
+======
     
 Once a job has been submitted, it can be altered. However, once a job begins execution, the only values that can be modified are :code:`cputime`, :code:`walltime`, and :code:`run_count`. These can only be reduced.
 
@@ -454,11 +457,12 @@ Users can only lower resource requests on queued jobs. If you need to increase r
 
 .. _scheduler_tips:
 
+*****************************************
 Tips for using PBS and Katana effectively
-=========================================
+*****************************************
 
 Keep your jobs under 12 hours if possible
------------------------------------------
+=========================================
 
 If you request more than 12 hours of :code:`WALLTIME` then you can only use the nodes bought by your school or research group. Keeping your job's run time request under 12 hours means that it can run on any node in the cluster.
 
@@ -471,7 +475,7 @@ Requesting more resources for your job decreases the places that the job can run
 The most obvious example is going over the 12 hour limit which limits the number of compute nodes that your job can run on but it is worth . For example specifying the CPU in your job script restricts you to the nodes with that CPU. A job that requests 20Gb will run on a 128Gb node with a 100Gb job already running but a 30Gb job will not be able to.
 
 Running your jobs interactively makes it hard to manage multiple concurrent jobs
---------------------------------------------------------------------------------
+================================================================================
 
 If you are currently only running jobs interactively then you should move to batch jobs which allow you to submit more jobs which then start, run and finish automatically.
 If you have multiple batch jobs that are almost identical then you should consider using array jobs
@@ -479,178 +483,7 @@ If you have multiple batch jobs that are almost identical then you should consid
 If your batch jobs are the same except for a change in file name or another variable then you should have a look at using array jobs.
 
 
-.. _katana_compute_faq:
 
-Scheduler FAQ
-=============
-
-Does Katana run a 32 bit or a 64 bit operating system?
-------------------------------------------------------
-
-Katana runs a 64 bit version of the Centos distribution of Linux.
-
-How much memory is available per core and/or per node?
-------------------------------------------------------
-
-The amount of memory available varies across the cluster. To determine how much memory each node has available use the 'pbsnodes' command.
-
-How much memory can I use on the login node for compiling software?
--------------------------------------------------------------------
-
-The login nodes have a total of 24GB of memory each. Each individual user is limited to 4GB and should only be used to compile software. If you need more, do it in an interactive job.
-
-Why isn't my job making it onto a node even though it says that some nodes are free?
-------------------------------------------------------------------------------------
-
-There are three main reasons for you to see this behavior. The first of them is specific to Katana and the other two apply to any cluster.
-
-Firstly, the compute nodes in Katana belong to various schools and research groups across UNSW . Any job with an expected run-time longer than 12 hours can only run on a compute node that is somehow associated with the owner of the job. For example, if you are in the CCRC you are entitled to run 12+ hour jobs on the General nodes and the nodes jointly purchased by CCRC. However, you cannot run 12+ hour jobs on the nodes purchased by Astrobiology, Statistics, TARS, CEPAR or Physics. So you may see idle nodes, but you may not be entitled to run a 12+ hour job on them.
-
-Secondly, the idle nodes may not have sufficient resources for your job. For example, there may not be sufficient cpu cores or memory available on a single compute node.
-
-Thirdly, there may be distributed memory jobs ahead of your job in the queue which have reservations on the idle nodes, and they are just waiting for all of their requested resources to become available. In this case, your job can only use the reserved nodes if your job can finish before the nodes are required by the distributed memory job. For example, if a job has been waiting a week (yes, it happens) for walltime=200,cpu=88,mem=600GB (very long, two whole nodes), then those resources will need to be made available at some point. This is an excellent example of why breaking your jobs up into smaller parts is good HPC practice.
-
-How many jobs can I submit at the one time?
--------------------------------------------
-
-Technically you can submit as many jobs as you wish as the scheduling system takes into account the available nodes, the current load on the system, the requirements of your jobs and your usage of the cluster to determine which jobs get assigned to a node as space becomes available. In short, if you have submitted a large number of jobs you should expect that someone could come along afterwards and submit jobs that start to run ahead of some of your queued jobs.
-
-Whilst there is not a technical limit to the number of jobs you can submit, submitting more that 2,000 jobs at the one time can place an unacceptable load on the job scheduler and your jobs may be deleted without warning.
-
-What is the maximum number of CPUs I can use in parallel?
----------------------------------------------------------
-
-If you are regularly wanting to run large parallel jobs on Katana you should consider speaking to :ref:`help_and_support` so that they are aware of your jobs. They may be able to provide you additional assistance on resource usage for parallel jobs.
-
-Why does my SSH connection periodically dsconnect?
---------------------------------------------------
-
-With all networks there is a limit to how long a connection between two computers will stay open if no data is travelling between them. More information about how to have the connection remain open is available on the cluster access page.
-
-I used the module command but it still can't find the application that I am trying to use.
-------------------------------------------------------------------------------------------
-
-If you want your job to access an application via the module command you should include it in your job script. An easy way to check is to submit an interactive job and then run your commands and see what happens.
-
-Can I change the job script after it has been submitted?
---------------------------------------------------------
-
-Yes you increase the resource values for queued jobs, but even then you are constrained by the limits of the particular queue that you are submitting to. Once it has been assigned to a node the intricacies of the scheduling policy means that it becomes impossible for anyone including the administrator to make any further changes
-
-Where does Standard Output (STDOUT) go when a job is run?
----------------------------------------------------------
-
-By default Standard Output is redirected to storage on the node and then transferred when the job is completed. If you are generating data you should redirect STDOUT to a different location. The best location depends on the characteristics of your job but in general all STDOUT should be redirected to local scratch.
-
-How do I figure out what the resource requirements of my job are?
------------------------------------------------------------------
-
-The best way to determine the resource requirements of your job is to be generous with the resource requirements on the first run and then refine the requirements based on what the job actually used. If you put the following information in your job script you will receive an email when the job finishes which will include a summary of the resources used.
-
-.. code-block:: bash 
-
-    #PBS -M z1234567@unsw.edu.au 
-    #PBS -m ae
-
-Can I cause problems to other users if I request too many resources or make a mistake with my job script?
----------------------------------------------------------------------------------------------------------
-
-No.
-
-Will a job script from another cluster work on cluster X?
----------------------------------------------------------
-
-It depends. Some aspects are fairly common across different clusters (e.g. walltime) others are not (e.g. select is on Tensor but not on Katana). You should look at the cluster specific information to see what queuing system is being used on that cluster and what commands you will need to change.
-
-How can I see exactly what resources (I/O, CPU, memory and scratch) my job is currently using?
-----------------------------------------------------------------------------------------------
-
-From *outside* the job, you can run :code:`qstat -f <jobid>`. 
-
-If, for instance, you wanted to measure different steps of your process, then inside your jobscript you can put :code:`qstat -f $PBS_JOBID`
-
-For finer grained detail, you may need to get access to the worker node that the job is running on:
-
-.. code-block:: bash 
-
-    qstat -nru $USER
-
-then you can see a list of your running jobs and where they are running. You can then use ssh to log on to the individual nodes and run top or dtop to see the load on the node including memory usage for each of the processes on the node.
-
-What is the difference between virtual memory (VMEM or VSZ) and physical memory (MEM or RSZ)?
----------------------------------------------------------------------------------------------
-
-Physical memory is the memory storage that is located on the physical memory sticks in the server. Swap is the memory storage that is located on the disk. Virtual memory is the entire addressable memory space combining both physical and swap memory.
-
-Why is VMEM so large?
-----------------------
-
-With a recent update to glibc (which is used by almost every piece of software on the system) the way that virtual memory is allocated has changed. For performance reasons (to reduce the time spent waiting for memory allocation locks) virtual memory is now set aside for each thread. This means, for example, that a 400mb job with 16 threads may require 1024mb of virtual memory equating to 64mb per thread.
-
-Depending on your job you may want to either increase your VMEM request or revert to something close to the previous behaviour depending on which provides your specific job better performance using:
-
-.. code-block:: bash
-
-    export MALLOC_ARENA_MAX=1
-
-How do I choose which version of software I use?
-------------------------------------------------
-
-To select a specific version of a piece of software you can use the module command. This allow you to choose between different installed versions of software.
-
-How do I request the installation or upgrade of a piece of software ?
----------------------------------------------------------------------
-
-If you wish to have a new piece of software installed or software that is already installed upgraded please send an email to the `IT Service Centre <ITServiceCentre@unsw.edu.au>`_ from your UNSW email account with details of what software change you require and the cluster that you would like it changed on.
-
-Why is my job stuck in the queue whilst other jobs run?
--------------------------------------------------------
-
-The queues are not set up to be first-in-first-out. In fact all of the queued jobs sit in one big pool of jobs that are ready to run. The scheduler assigns priorities to jobs in the pool and the job with the highest priority is the next one to run. The length of time spent waiting in the pool is just one of several factors that are used to determine priority.
-
-For example, people who have used the cluster heavily over the last two weeks receive a negative contribution to their jobs' priority, whereas a light user will receive a positive contribution. You can see this in action with the diagnose -p and diagnose -f commands.
-
-You mentioned waiting time as a factor, what else affects the job priority?
----------------------------------------------------------------------------
-
-The following three factors combine to generate the job priority.
-
-- How many resources (cpu and memory) have you and your group consumed in the last 14 days? Your personal consumption is weighted more highly than your group's consumption. Heavy recent usage contributes a negative priority. Light recent usage contributes a positive priority.
-- How many resources does the job require? Always a positive contribution to priority, but increases linearly with the amount of cpu and memory requested, i.e. we like big jobs.
-- How long has the job been waiting in the queue? Always a positive contribution to priority, but increases linearly with the amount of time your job has been waiting in the queue. Note that throttling policies will prevent some jobs from being considered for scheduling, in which case their clock does not start ticking until that throttling constraint is lifted.
-
-What happens if my job uses more memory than I requested?
----------------------------------------------------------
-
-The job will be killed by the scheduler. You will get a message to that effect if you have any types of notification enabled (logs, emails).
-
-What happens if my job is still running when it reaches the end of the time that I have requested?
---------------------------------------------------------------------------------------------------
-
-When your job hits it's :code:`WALLTIME` it is automatically terminated by the scheduler.
-
-200 hours is not long enough! What can I do?
---------------------------------------------
-
-If you find that your jobs take longer than the maximum WALL time then there are several different options to change your code so that it fits inside the parameters.
-
-- Can your job be split into several independent jobs?
-- Can you export the results to a file which can then be used as input for the next time the job is run?
-
-You may want to also look to see if there is anything that you can do to make your code run better like making better use of local scratch if your code is I/O intensive.
-
-Do sub-jobs within an array job run in parallel, or do they queue up serially?
-------------------------------------------------------------------------------
-
-Submitting an array job with 100 sub-jobs is equivalent to submitting 100 individual jobs. So if sufficient resources are available then all 100 sub-jobs could run in parallel. Otherwise some sub-jobs will run and other sub-jobs must wait in the queue for resources to become available.
-
-The '%' option in the array request offers the ability to self impose a limit on the number of concurrently running sub-jobs. Also, if you need to impose an order on when the jobs are run then the 'depend' attribute can help.
-
-In a pbs file does the VMEM requested refer to each node or the total memory on all nodes being used (if I am using more than 1 node?
--------------------------------------------------------------------------------------------------------------------------------------
-
-VMEM refers to the amount of memory per node.
-
-.. _PBSPro: http://
-.. _SLURM: http://
+.. _OpenPBS: https://www.pbspro.org/
+.. _SLURM: https://slurm.schedmd.com/ 
 .. _`brace expansion`: https://www.gnu.org/software/bash/manual/html_node/Brace-Expansion.html

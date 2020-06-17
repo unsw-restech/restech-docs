@@ -11,10 +11,10 @@ Scheduled Maintenance
 .. attention::
     There is no maintenance scheduled for the moment. 
 
-.. contact_the_Research_Technology_Services_team::
+.. _contact_us:
 
-Who to contact
-==============
+Contact the Research Technology Services team
+=============================================
 
 Katana issues including: functional issues, software installation, reference data sets, general questions: 
 Email the `IT Service Centre <ITServiceCentre@unsw.edu.au>`_, including the word Katana in the subject line.
