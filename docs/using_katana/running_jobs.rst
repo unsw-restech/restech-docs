@@ -4,20 +4,26 @@
 Running Jobs on Katana
 ######################
 
-The :term:`Login Node` of a cluster is a shared resource for all users and is used for preparing, submitting and managing jobs. Never run any computationally intensive processes on the login nodes. Jobs are submitted from the login node, which delivers them to the :term:`Head Node` for job and resource management, then they actually run on one or more of the compute nodes. Different clusters use different tools to manage resources and schedule jobs - OpenPBS_ and SLURM_ are two popular systems. Katana, like NCI's Gadi, uses OpenPBS_ for this purpose.
+**************
+Brief Overview
+**************
 
-Jobs are submitted using the :code:`qsub` command. There are two types of job that :code:`qsub` will accept: interactive jobs and batch jobs. Regardless of type, the resource manager will put your job in a :term:`Queue`.
+The :term:`Login Node` of a cluster is a shared resource for all users and is used for preparing, submitting and managing jobs. Never run any computationally intensive processes on the login nodes. Jobs are submitted from the login node, which delivers them to the :term:`Head Node` for job and resource management. Once the resources have been allocated and are available, the job will run on one or more of the compute nodes as requested. 
+
+Different clusters use different tools to manage resources and schedule jobs - OpenPBS_ and SLURM_ are two popular systems. Katana, like NCI's Gadi, uses OpenPBS_ for this purpose.
+
+Jobs are submitted using the :code:`qsub` command. There are two types of job that :code:`qsub` will accept: an :term:`Interactive Job` and a :term:`Batch Job`. Regardless of type, the resource manager will put your job in a :term:`Queue`.
 
 An **interactive job** provides a shell session on a :term:`Compute Nodes`. You interact directly with the compute node running the software you need explicitly. Interactive jobs are useful for experimentation, debugging, and planning for **batch jobs**. 
 
-In contrast, a :term:`Batch Job` is a scripted job that - after submission via :code:`qsub` - runs from start to finish without any user intervention. The vast majority of jobs on the cluster are batch jobs. This type of job is appropriate for production runs of several hours or days. When you submit
+In contrast, a :term:`Batch Job` is a scripted job that - after submission via :code:`qsub` - runs from start to finish without any user intervention. The vast majority of jobs on the cluster are batch jobs. This type of job is appropriate for production runs that will consume several hours or days. 
 
-To submit a :term:`Batch Job` you will need to create a job script which specifies the resources that your job requires and calls your program. The general structure of `A Job Script`_ is shown below. TODO: Link
+To submit a :term:`Batch Job` you will need to create a job script which specifies the resources that your job requires and calls your program. The general structure of `A Job Script`_ is shown below.
 
 .. important::
     All jobs go into a :term:`Queue` while waiting for resources to become available. The length of time your jobs wait in a queue for resources depends on a number of factors.
 
-The main resources available for use are Memory, CPU cores (number of CPUs) and Walltime (how long you want the CPUs for). These need to be considered carefully when writing your job script, since the decisions you make will impact which queue your jobs ends up on.
+The main resources available for use are Memory (RAM), :term:`CPU Core` (number of CPUs) and :term:`Walltime` (how long you want the CPUs for). These need to be considered carefully when writing your job script, since the decisions you make will impact which queue your jobs ends up on.
 
 As you request more memory, the number of available queues goes down. The memory limits, in GB, at which the number of queues decreases are 124, 180, 248, 370, 750 and 1000.
 
@@ -40,10 +46,9 @@ Interactive Jobs
 
 An interactive job or interactive session is a session on a compute node with the required physical resources for the period of time requested. To request an interactive job, add the -I flag (capital i) to :code:`qsub`. Default sessions will have 1 CPU core, 1GB and 1 hour
 
-For example, the following two commands. The first provides a default session, the second provides a session with two CPU core and 8GB memory for three hours:
+For example, the following two commands. The first provides a default session, the second provides a session with two CPU core and 8GB memory for three hours. You can tell when an interactive job has started when you see the name of the server change from :code:`katana1` or :code:`katana2` to the name of the server your job is running on. In these cases it's :code:`k181` and :code:`k201` respectively.
 
 .. code-block:: bash
-    :emphasize-lines: 1,4
 
     [z1234567@katana1 ~]$ qsub -I
     qsub: waiting for job 313704.kman.restech.unsw.edu.au to start
@@ -51,16 +56,13 @@ For example, the following two commands. The first provides a default session, t
     [z1234567@k181 ~]$ 
 
 .. code-block:: bash
-    :emphasize-lines: 1,4
 
-    [z1234567@katana1 ~]$ qsub -I -l select=1:ncpus=2:mem=8gb,walltime=3:00:00
+    [z1234567@katana2 ~]$ qsub -I -l select=1:ncpus=2:mem=8gb,walltime=3:00:00
     qsub: waiting for job 1234.kman.restech.unsw.edu.au to start
     qsub: job 1234.kman.restech.unsw.edu.au ready
     [z1234567@k201 ~]$ 
 
-In both cases you can see the server name change from :code:`katana1` to the name of the node assigned to the job (:code:`k181` and :code:`k201` respectively).
-
-Jobs are constrained by the resources that are requested. In the previous example the job would be terminated after 1 hour or if a command within the session consumed more than 8GB memory. The job (and therefore the session) can also be terminated by the user with CTRL-D or the :code:`logout` command.
+Jobs are constrained by the resources that are requested. In the previous example the first job - running on :code:`k181` - would be terminated after 1 hour or if a command within the session consumed more than 8GB memory. The job (and therefore the session) can also be terminated by the user with :code:`CTRL-D` or the :code:`logout` command.
 
 Interactive jobs can be particularly useful while developing and testing code for a future batch job, or performing an interactive analysis that requires significant compute resources. Never attempt such tasks on the login node -- submit an interactive job instead.
 
@@ -85,14 +87,14 @@ The following script simply executes a pre-compiled program ("myprogram") in the
  
     ./myprogram
 
-This script can be submitted to the cluster with :code:`qsub` and it will become a job and be assigned to a queue. If the script is in a file called :code:`myjob.pbs` then the following command will submit the job with the default resource requirements (1 CPU core for 1 hour and 1Gb of memory):
+This script can be submitted to the cluster with :code:`qsub` and it will become a job and be assigned to a queue. If the script is in a file called :code:`myjob.pbs` then the following command will submit the job with the default resource requirements (1 CPU core with 1GB of memory for 1 hour):
 
 .. code-block:: bash
 
-    [z1234567@katana ~]$ qsub myjob.pbs
+    [z1234567@katana1 ~]$ qsub myjob.pbs
     1237.kman.restech.unsw.edu.au
 
-As with interactive jobs, the -l (lowercase L) flag can be used to specify resource requirements for the job:
+As with interactive jobs, the :code:`-l` (lowercase L) flag can be used to specify resource requirements for the job:
 
 .. code-block:: bash
 
@@ -120,7 +122,7 @@ For the previous example, the job script could be rewritten as:
     ./myprogram
 
 This structure is the most common that you will use. The top line must be :code:`#!/bin/bash` - we are running bash scripts, and this is required.
-The following section - the lines starting with :code:`#PBS` - are where we will be configuring how the job will be run.
+The following section - the lines starting with :code:`#PBS` - are where we will be configuring how the job will be run - here we are asking for resources.
 The final section shows the commands that will be executed in the configured session.
 
 The script can now be submitted with much less typing:
@@ -130,7 +132,7 @@ The script can now be submitted with much less typing:
     [z1234567@katana ~]$ qsub myjob.pbs
     1239.kman.restech.unsw.edu.au
 
-Unlike submission of an interactive job, which results in a session on a compute node ready to accept commands, the submission of a batch job returns the ID of the new job. This is confirmation that the job was submitted successfully. The job is now processed by the job scheduler and resource manager. Commands for checking the status of the job can be found in the Job Monitoring section. (TODO: come back and make sure this is a link)
+Unlike submission of an interactive job, which results in a session on a compute node ready to accept commands, the submission of a batch job returns the ID of the new job. This is confirmation that the job was submitted successfully. The job is now processed by the job scheduler and resource manager. Commands for checking the status of the job can be found in the section :ref:`Managing Jobs on Katana`.
 
 If you wish to be notified by email when the job finishes then use the :code:`-M` flag to specify the email address and the :code:`-m` flag to declare which events cause a notification. Here we will get an email if the job aborts (:code:`-m a`) due to an error or ends (:code:`-m e`) naturally. 
 
@@ -154,7 +156,7 @@ When a job starts, it needs to know where to save it's output and do it's work. 
 
 There is one last special variable you should know about, especially if you are working with large datasets. The storage on the compute node your job is running on will always be faster than the network drive.
 
-If you use the storage close to the CPUs - in the machine rather than on the shared drives, called :term:`Local Scratch` - you can often save hours of time reading and writing across the network. 
+If you use the storage close to the CPUs - in the server rather than on the shared drives, called :term:`Local Scratch` - you can often save hours of time reading and writing across the network. 
 
 In order to do this, you can copy data to and from the local scratch, called :code:`$TMPDIR`:
 
@@ -166,7 +168,7 @@ In order to do this, you can copy data to and from the local scratch, called :co
     cp -r $TMPDIR/my_output /home/z1234567
 
 
-There are a lot of things that can be done with PBSPro, but you don't need to know it all. But these few basics will get you started. 
+There are a lot of things that can be done with PBSPro, but you don't and won't need to know it all. These few basics will get you started. 
 
 Here's the full script as we've described. You can copy this into a text editor and once you've changed our dummy values for yours, you only need to change the last line.
 
@@ -214,11 +216,7 @@ For example, the following script will spawn 100 sub-jobs. Each sub-job will req
      
     ./myprogram ${PBS_ARRAY_INDEX}.dat
 
-There are some more examples of array jobs including how to group your computations in an array job on the examples page.
-
-.. warning::
-    TODO: old documentation had examples here. Move all examples to github
-
+There are some more examples of array jobs including how to group your computations in an array job on the `UNSW Github HPC examples <https://github.com/unsw-edu-au/Restech-HPC/tree/master/hpc-examples>`_ page.
 
 **************************
 Splitting large Batch Jobs
@@ -226,13 +224,11 @@ Splitting large Batch Jobs
 
 If your batch job can be split into multiple steps you may want to split one big job up into a number of smaller jobs. There are a number of reasons to spend the time to implement this.
 
-1. If your large job runs for over 200 hours, it wont finish on Katana.
+1. If your large job runs for over 200 hours, it won't finish on Katana.
 2. If your job has multiple steps which use different amounts of resources at each step. If you have a pipeline that takes 50 hours to run and needs 200GB of memory for an hour, but only 50GB the rest of the time, then the memory is sitting idle. 
 3. Katana has prioritisations based on how many resources any one user uses. If you ask for 200GB of memory, this will be accounted for when working out your next job's priority.
 4. There's no other way to say this, but because there are more resources for 12 hour jobs, seven or eight 12 hour jobs will often finish well before a single 100 hour job even starts. 
 
-.. warning::
-    TODO: old documentation had examples here. Move all examples to github
 
 .. _state_of_pbs:
 
@@ -248,7 +244,7 @@ When deciding which jobs to run, the scheduler takes the following details into 
 - how long is the job's Walltime
 - how long has the job been in the queue
 
-You can get an overview of the compute nodes and a list of all the jobs running on each node:
+You can get an overview of the compute nodes and a list of all the jobs running on each node using :code:`pstat`
 
 .. code-block:: bash
 
@@ -265,7 +261,7 @@ You can get an overview of the compute nodes and a list of all the jobs running 
     k010  normal-physics          free           0/32     0/ 187gb      
 
 
-To get information about a particular node, you can use :code:`pbsnodes` but that is a firehose. Using it with a particular node name is more effective:
+To get information about a particular node, you can use :code:`pbsnodes` but on it's own it is a firehose. Using it with a particular node name is more effective:
 
 .. code-block:: bash
 
@@ -275,7 +271,7 @@ To get information about a particular node, you can use :code:`pbsnodes` but tha
          ntype = PBS
          state = job-busy
          pcpus = 32
-         jobs = 313284.kman.restech.unsw.edu.au/0, 313284.kman.restech.unsw.edu.au/1, 313284.kman.restech.unsw.edu.au/2, 313284.kman.restech.unsw.edu.au/3, 313284.kman.restech.unsw.edu.au/4, 313284.kman.restech.unsw.edu.au/5, 313284.kman.restech.unsw.edu.au/6, 313284.kman.restech.unsw.edu.au/7, 313284.kman.restech.unsw.edu.au/8, 313284.kman.restech.unsw.edu.au/9, 313284.kman.restech.unsw.edu.au/10, 313284.kman.restech.unsw.edu.au/11, 313284.kman.restech.unsw.edu.au/12, 313284.kman.restech.unsw.edu.au/13, 313284.kman.restech.unsw.edu.au/14, 313284.kman.restech.unsw.edu.au/15, 313662.kman.restech.unsw.edu.au/16, 313662.kman.restech.unsw.edu.au/17, 313662.kman.restech.unsw.edu.au/18, 313662.kman.restech.unsw.edu.au/19, 313662.kman.restech.unsw.edu.au/20, 313662.kman.restech.unsw.edu.au/21, 313662.kman.restech.unsw.edu.au/22, 313662.kman.restech.unsw.edu.au/23, 313662.kman.restech.unsw.edu.au/24, 313662.kman.restech.unsw.edu.au/25, 313662.kman.restech.unsw.edu.au/26, 313662.kman.restech.unsw.edu.au/27, 313662.kman.restech.unsw.edu.au/28, 313662.kman.restech.unsw.edu.au/29, 313662.kman.restech.unsw.edu.au/30, 313662.kman.restech.unsw.edu.au/31
+         jobs = 313284.kman.restech.unsw.edu.au/0, 313284.kman.restech.unsw.edu.au/1, 313284.kman.restech.unsw.edu.au/2 
          resources_available.arch = linux
          resources_available.cpuflags = avx,avx2,avx512bw,avx512cd,avx512dq,avx512f,avx512vl
          resources_available.cputype = skylake-avx512
@@ -432,7 +428,6 @@ Once a job has been submitted, it can be altered. However, once a job begins exe
 Users can only lower resource requests on queued jobs. If you need to increase resources, contact a systems administrator. In this example you will see the resources change - but not the :code:`Submit_arguments`
 
 .. code-block:: bash
-    :emphasize-lines: 6,7,9,15,16,18
 
     [z1234567@katana2 src]$ qsub -l select=1:ncpus=2:mem=128mb job.pbs
     315259.kman.restech.unsw.edu.au

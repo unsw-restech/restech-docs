@@ -1,6 +1,13 @@
 .. _katana:
 
-.. include:: about_katana.rst
-.. include:: accessing_katana.rst
-.. include:: running_jobs.rst
-.. include:: github.rst
+############
+Using Katana
+############
+
+.. toctree::
+    :maxdepth: 1
+
+   about_katana.rst
+   accessing_katana.rst
+   running_jobs.rst
+   github.rst

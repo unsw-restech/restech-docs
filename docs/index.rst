@@ -6,7 +6,7 @@
 Welcome to Katana User's documentation!
 =======================================
 
-This document is available in :download:`pdf format <_static/20200504.katanauser.pdf>` for offline reading.
+This document is available in :download:`pdf format <_static/20200618.katanauser.pdf>` for offline reading.
 
 .. toctree::
    :maxdepth: 2
@@ -15,9 +15,9 @@ This document is available in :download:`pdf format <_static/20200504.katanauser
    :glob:
 
    help_and_support
-   Katana <using_katana/index>
-   Storage <storage>
-   Software <software/index>
+   using_katana/index
+   storage/index
+   software/index
    reference_data
    faq
    glossary

@@ -13,7 +13,7 @@ Glossary
         If you want to run the same job multiple times with slight differences (filenames, data source, etc), then you can create an array job which will submit multiple jobs for you from the one job script. 
 
     Batch Job
-        A batch job is a job on a cluster that runs without any further input once it has been submitted. Almost all jobs on the cluster are batch jobs. All jobs are either batch jobs or :term:`Interactive Jobs`.
+        A batch job is a job on a cluster that runs without any further input once it has been submitted. Almost all jobs on the cluster are batch jobs. All jobs are either batch jobs or :term:`Interactive Job`.
 
     Blade 
         Some of the compute nodes Katana are called blade servers which allow a higher density of servers in the same space. Each blade consists of multiple CPUs with 6 or more cores.
@@ -28,7 +28,7 @@ Glossary
         Each node in the cluster has one or more CPUs each of which has 6 or more cores. Each core is able to run one job at a time so a node with 12 cores could have 12 jobs running in parallel.
 
     Data Transfer Node
-        The Data Transfer Node, also known as the :ref:`katana_data_mover` (KDM), is a server that is used for transferring files to, from, and within the cluster. Due to the nature of moving data around, it uses a significant amount of memory and network bandwidth. This server is used to take that load off the :term:`Login Node`.
+        The Data Transfer Node, also known as the :ref:`Katana Data Mover` (KDM), is a server that is used for transferring files to, from, and within the cluster. Due to the nature of moving data around, it uses a significant amount of memory and network bandwidth. This server is used to take that load off the :term:`Login Node`.
 
     Environment Variable 
         Environment variables are variables that are set in Linux to tell applications where to find programs and set program options. They will start with a $ symbol. For example, all users can reference :code:`$TMPDIR` in their :term:`Job Script` in order to use :term:`Local Scratch`
@@ -42,7 +42,7 @@ Glossary
     Held Jobs
         Held jobs are jobs that cannot currently run. They are put into that state by either the server or the system administrator. Jobs stay held until released by a systems administrator, at which point they become :term:`Queued Jobs`. These can be seen by running :code:`qstat` and looking for an H in the second last column. See :ref:`more_info_from_pbs`
 
-    Interactive Jobs 
+    Interactive Job 
         An interactive job is a way of testing your program and data on a cluster without negatively impacting the :term:`Login Node`. Once a request has been submitted and accepted for an interactive job, the user will no longer be on the relatively small login nodes, and will have access to the resources requested on the :term:`Compute Nodes`. In other words, your terminal session will move from a small (virtual) computer you share with many people to a large computer you share with very few people. All jobs are either a :term:`Batch Job` or an interactive job.  
     
     Job Scheduler
@@ -80,3 +80,6 @@ Glossary
 
     Scratch Space 
         Scratch space is a non backed up storage area where users can store transient data. It should not be used for job code as it is not backed up.
+
+    Walltime
+        In HPC, walltime is the amount of time that you will be allocated when your job runs. If your jobs runs longer than the walltime, it will be killed by the :term:`Job Scheduler`. It is used by the scheduler for helping allocate resources onto servers. On **Katana** it is also used to determine which :term:`Queue` your job will end up in. The shorter the walltime, the more opportunity your job has to run which in turn means that it will start sooner. In short - it's harder to find 100 hours of space than it is to find 12 hours of space.
