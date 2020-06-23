@@ -9,7 +9,7 @@ General FAQ
 Where is the best place to store my code?
 =========================================
 
-The best place to store source code is to use a version control server.  This means that you will be able to keep every version of your code and revert to an earlier version if you require. `UNSW has a central github account <https://research.unsw.edu.au/github>`_, but we encourage you to create your own.
+The best place to store source code is to use version control and store it in a repository.  This means that you will be able to keep every version of your code and revert to an earlier version if you require. `UNSW has a central github account <https://research.unsw.edu.au/github>`_, but we encourage you to create your own.
 
 I just got some money from a grant. What can I spend it on?
 ===========================================================
