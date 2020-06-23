@@ -241,4 +241,4 @@ For example, using the Katana TensorFlow installation and a desire for Jupyter:
     (tf) [z1234567@katana2 ~]$ pip install jupyter
 
 
-This will throw errors because there are a collection of packages missing in relation to the latest Jupyter. They shouldn't affect your ability to run :ref:`jupyter_notebooks` with tensorflow.
+This will throw errors because there are a collection of packages missing in relation to the latest Jupyter. They shouldn't affect your ability to run :ref:`Jupyter Notebooks` with tensorflow.
