@@ -87,7 +87,7 @@ You can find out more about a piece of software by using the module help command
 
 .. code-block:: bash
 
-    [z1234567@katana1 ~]# module help mrbayes
+    [z1234567@katana1 ~]$ module help mrbayes
      
     ----------- Module Specific Help for 'mrbayes/3.2.2' --------------
      
