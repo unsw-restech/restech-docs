@@ -21,6 +21,7 @@ The best documentation on how to use the `Data Archive`_ is found on their websi
 To see what versions of the Data Archive script are available log on to :code:`kdm.science.unsw.edu.au` and type
 
 .. code-block:: bash
+
     module avail unswdataarchive
 
 Use the help command for usage
