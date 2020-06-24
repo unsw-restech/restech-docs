@@ -9,13 +9,18 @@ To help researchers make use of this system the Katana Data Mover has a script t
 .. note::
     To use this script you must have access to the UNSW Data Archive which requires setting up a `Research Data Management Plan <https://research.unsw.edu.au/research-data-management-unsw>`_.
 
-.. note::
-    You cannot use the data archive with tools like Filezilla or WinSCP - you will need to use the command line.
+The best documentation on how to use the `Data Archive`_ is found on their website:
+
+ - using the `web application`_
+ 
+ - using `SFTP`_
+
+ - using the `Command Line`_
+
 
 To see what versions of the Data Archive script are available log on to :code:`kdm.science.unsw.edu.au` and type
 
 .. code-block:: bash
-
     module avail unswdataarchive
 
 Use the help command for usage
@@ -65,3 +70,8 @@ To get data **from** the archive, we use :code:`download.sh`
 .. code-block:: bash
 
     download.sh /UNSW_RDS/D0000000/your/collection/name /path/to/your/local/directory
+
+.. _Data Archive: http://www.dataarchive.unsw.edu.au/
+.. _web application: http://www.dataarchive.unsw.edu.au/help/web-application-guide
+.. _SFTP: http://www.dataarchive.unsw.edu.au/help/sftp-client-guide
+.. _Command Line: http://www.dataarchive.unsw.edu.au/help/command-line-script-guide
