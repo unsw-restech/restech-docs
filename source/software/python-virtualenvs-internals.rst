@@ -2,7 +2,7 @@
 Virtual Environments from the inside
 ####################################
 
-We've built a venv in our :code:`~/.venvs directory`. Let's take a look inside. This presumes you have used the command 
+We've built a venv in our :code:`~/.venvs` directory. Let's take a look inside. This presumes you have used the command 
 
 .. code-block:: bash
 

@@ -14,6 +14,13 @@ If you are using a Python module, you will need to change the first line to
 
     #!/usr/bin/env python
 
+or more the likely
+
+.. code-block:: bash
+
+    #!/usr/bin/env python3
+
+
 
 ******************
 Conda and Anaconda
@@ -23,7 +30,7 @@ We get a lot of questions about installing Conda and Anaconda. Unfortunately nei
 
 You are able to install them into your home directory and we encourage you to do so.
 
-Alternatively, many packages will give you an option for a :code:`pip install` - if this is an option, we recommend...
+Alternatively, many packages will give you an option for a :code:`pip install` - if this is an option, we recommend you use :code:`python virtual environments`.
 
 
 ********************

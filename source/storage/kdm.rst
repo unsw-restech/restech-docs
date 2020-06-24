@@ -2,7 +2,7 @@
 Katana Data Mover
 #################
 
-Also known as kdm.
+Also known as :code:`kdm` or :code:`kdm.restech.unsw.edu.au`
 
 If you have data that you would like to copy to or within the Katana cluster, archive or even compress and decompress you should use the Katana Data Mover - also known as the KDM server - rather than using the head node. This section contains instructions on how to use KDM server.
 
@@ -11,7 +11,7 @@ If you are familiar with using Linux commands to copy or move files then you can
 If you are not familiar with using the Linux command line for moving or copying files then the easiest way to move files around is to use client software such as FileZilla_. Once you have connected to :code:`kdm.restech.unsw.edu.au` using your zID and zPass you should see a remote view which corresponds to the files sitting on Katana. You can then use the FileZilla interface to move files and folders around.
 
 .. note::
-    We require people to "move data" through the data mover. We have hundreds of users, most of whom have data ranging from very large to impossibly large. This is why we have the KDM. If you are transferring a couple of small text files - job scripts for instance - you can copy directly to the Katana. But we would ask you to keep it to a minimum, and nothing bigger than 2-3 MB.
+    We require people to "move data" through the data mover. We have hundreds of users, most of whom have data ranging from very large to impossibly large. This is why we have the :code:`kdm`. If you are transferring a couple of small text files - job scripts for instance - you can copy directly to the Katana. But we would ask you to keep it to a minimum, and nothing bigger than 2-3 MB.
 
 ***********************************
 Copying Files To and From a Cluster
@@ -36,18 +36,18 @@ You can also use the Quick Connect bar as shown here:
 From my computer to Katana Home
 ===============================
 
-To copy the directory /home/1234567/my-directory from your local computer to Katana scratch
+To copy the directory :code:`/home/1234567/my-directory` from your local computer to Katana scratch. The trailing :code:`:` is important!
 
 .. code-block:: bash
 
-    me@localhost:~$ rsync -avh /path/to/my/directory z1234567@kdm.restech.unsw.edu.au:
+    me@localhost:~$ rsync -avh /path/to/my-directory z1234567@kdm.restech.unsw.edu.au:
 
 From my computer to Katana Scratch
 ==================================
 
 .. code-block:: bash
 
-    me@localhost:~$ rsync -avh /path/to/my/directory z1234567@kdm.restech.unsw.edu.au:/srv/scratch/z1234567
+    me@localhost:~$ rsync -avh /path/to/my-directory z1234567@kdm.restech.unsw.edu.au:/srv/scratch/z1234567
 
 
 From Katana to my computer
@@ -59,19 +59,17 @@ If the data is in :code:`/home/z1234567/my-remote-results` and you want it in yo
 
 .. code-block:: bash
 
-    me@localhost:~$ rsync -avh z1234567@kdm.restech.unsw.edu.au:my-remote-results .
+    me@localhost:~$ rsync -avh z1234567@kdm.restech.unsw.edu.au:my-remote-results /home/me/
 
 If the data is in :code:`/srv/scratch/my-remote-results` and you want it in your home directory:
 
 .. code-block:: bash
 
-    me@localhost:~$ rsync -avh z1234567@kdm.restech.unsw.edu.au:/srv/scratch/my-remote-results .
+    me@localhost:~$ rsync -avh z1234567@kdm.restech.unsw.edu.au:/srv/scratch/my-remote-results /home/me
 
 .. note::
     :ref:`TMUX` is available if your data is large and the rsync might take a long time.
 
-
-:ref:`TMUX`
 
 .. _Filezilla: https://filezilla-project.org/
 .. _WinSCP: https://winscp.net/eng/download.php

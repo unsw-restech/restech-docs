@@ -5,7 +5,6 @@ Using Katana
 ############
 
 .. toctree::
-    :maxdepth: 1
 
    about_katana.rst
    accessing_katana.rst

@@ -10,7 +10,7 @@ To help researchers make use of this system the Katana Data Mover has a script t
     To use this script you must have access to the UNSW Data Archive which requires setting up a `Research Data Management Plan <https://research.unsw.edu.au/research-data-management-unsw>`_.
 
 .. note::
-    You cannot use the data archive via Filezilla or WinSCP - you will need to use the command line.
+    You cannot use the data archive with tools like Filezilla or WinSCP - you will need to use the command line.
 
 To see what versions of the Data Archive script are available log on to :code:`kdm.science.unsw.edu.au` and type
 
