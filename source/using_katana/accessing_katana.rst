@@ -42,7 +42,7 @@ From a Windows machine a SSH client such as PuTTY_ or MobaXTerm_ is required.
 Graphical sessions
 ==================
 
-.. _warning:
+.. warning::
     
     Please use the provided :ref:`OnDemand` option rather than the following. It's significantly easier and faster.
 
