@@ -12,6 +12,7 @@ Each section after that explains tips and tricks for using that software on Kata
 
     environment_modules.rst
     biosciences.rst
+    zip.rst
     java.rst
     intel_compilers_and_libraries.rst
     operating_systems.rst

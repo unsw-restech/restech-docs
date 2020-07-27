@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   
-  <title>TMUX &mdash; Katana User Documentation 1.0 documentation</title>
+  <title>Compressing Large Directories &mdash; Katana User Documentation 1.0 documentation</title>
   
 
   
@@ -28,8 +28,8 @@
         <link rel="search" title="Search" href="../search.html"/>
     <link rel="top" title="Katana User Documentation 1.0 documentation" href="../index.html"/>
         <link rel="up" title="Software" href="index.html"/>
-        <link rel="next" title="Reference Data" href="../reference_data.html"/>
-        <link rel="prev" title="Stata" href="stata.html"/>
+        <link rel="next" title="Java" href="java.html"/>
+        <link rel="prev" title="Biosciences" href="biosciences.html"/>
 
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta http-equiv="cache-control" content="public" />
@@ -87,7 +87,7 @@
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Software</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="environment_modules.html">Environment Modules</a></li>
 <li class="toctree-l2"><a class="reference internal" href="biosciences.html">Biosciences</a></li>
-<li class="toctree-l2"><a class="reference internal" href="zip.html">Compressing Large Directories</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Compressing Large Directories</a></li>
 <li class="toctree-l2"><a class="reference internal" href="java.html">Java</a></li>
 <li class="toctree-l2"><a class="reference internal" href="intel_compilers_and_libraries.html">Intel Compilers and Software Libraries</a></li>
 <li class="toctree-l2"><a class="reference internal" href="operating_systems.html">Operating Systems</a></li>
@@ -99,7 +99,7 @@
 <li class="toctree-l2"><a class="reference internal" href="r.html">R and RStudio</a></li>
 <li class="toctree-l2"><a class="reference internal" href="sas.html">SAS</a></li>
 <li class="toctree-l2"><a class="reference internal" href="stata.html">Stata</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">TMUX</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tmux.html">TMUX</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../reference_data.html">Reference Data</a></li>
@@ -152,16 +152,14 @@
           <div role="main" class="">
 
 	    <div id="content" class="hfeed entry-container hentry">
-  <div class="section" id="tmux">
-<h1>TMUX<a class="headerlink" href="#tmux" title="Permalink to this headline">¶</a></h1>
-<p><a class="reference external" href="https://github.com/tmux/tmux/wiki">tmux</a> is available on Katana. It can be used to manage multiple sessions, including keeping them alive despite a terminal losing connectivity or being shutdown.</p>
-<p>When you login to Katana using the terminal, it is a “live” session - if you close the terminal, the session will also close. If you shut your laptop or turn off the network, you will also kill the session.</p>
-<p>This is fine, except when you have a long running program - say you are downloading a large data set - and you need to leave campus.</p>
-<p>In these situations, you can use <code class="code docutils literal notranslate"><span class="pre">tmux</span></code> to create an <strong>interruptible session</strong>. <code class="code docutils literal notranslate"><span class="pre">tmux</span></code> has other powerful features - multiple sessions and split screens being two of many features.</p>
-<p>To start tmux, type <code class="code docutils literal notranslate"><span class="pre">tmux</span></code> at the terminal. A new session will start and there will be a green information band at the bottom of the screen.</p>
-<p>Anything you start in this session will keep running even if you are disconnected from that session regardless of the reason. Except when the server itself is rebooted. That - and I hope this is obvious - will kill all sessions.</p>
-<p>If you do get detached, you can re-attach by logging into the same server and using the command <code class="code docutils literal notranslate"><span class="pre">tmux</span> <span class="pre">a</span></code></p>
-<p>tmux is similar to another program called <code class="code docutils literal notranslate"><span class="pre">screen</span></code> which is also available.</p>
+  <div class="section" id="compressing-large-directories">
+<h1>Compressing Large Directories<a class="headerlink" href="#compressing-large-directories" title="Permalink to this headline">¶</a></h1>
+<p>If you want to compress large directories or directories with a large number of files, we recommend a simple tool called <a class="reference external" href="https://github.com/unsw-edu-au/tgzme/blob/master/tgzme.sh">tgzme</a> developed by one of our researchers.</p>
+<p>It’s essentially a smart shell script wrapped around the one line command:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>tar -c <span class="nv">$DIRECTORY</span> <span class="p">|</span> pigz &gt; <span class="nv">$DIRECTORY</span>.tar.gz
+</pre></div>
+</div>
+<p>We thank <a class="reference external" href="https://orcid.org/0000-0002-3645-5539">Dr. Edwards</a> for his contribution.</p>
 </div>
 
 
@@ -170,10 +168,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../reference_data.html" class="btn btn-neutral float-right" title="Reference Data">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="java.html" class="btn btn-neutral float-right" title="Java">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="stata.html" class="btn btn-neutral" title="Stata"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="biosciences.html" class="btn btn-neutral" title="Biosciences"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
